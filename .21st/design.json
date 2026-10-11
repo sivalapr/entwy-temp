@@ -1,0 +1,305 @@
+{
+  "version": 1,
+  "project": {
+    "name": "entwy-marketing",
+    "productType": null,
+    "stack": [
+      "react",
+      "shadcn",
+      "tailwind-v3",
+      "vite"
+    ]
+  },
+  "sources": {
+    "tokens": [
+      "src/index.css"
+    ],
+    "components": [
+      "src/components/ui"
+    ],
+    "assets": [
+      "public/images"
+    ],
+    "instructions": []
+  },
+  "design": {
+    "colorMode": "light",
+    "colors": {
+      "--color-primary": {
+        "value": "#ff4f00",
+        "source": "src/index.css"
+      },
+      "--color-primary-hover": {
+        "value": "#e64700",
+        "source": "src/index.css"
+      },
+      "--color-primary-active": {
+        "value": "#cc3f00",
+        "source": "src/index.css"
+      },
+      "--color-on-primary": {
+        "value": "#fffefb",
+        "source": "src/index.css"
+      },
+      "--color-ink": {
+        "value": "#201515",
+        "source": "src/index.css"
+      },
+      "--color-ink-soft": {
+        "value": "#2f2a26",
+        "source": "src/index.css"
+      },
+      "--color-ink-mid": {
+        "value": "#36342e",
+        "source": "src/index.css"
+      },
+      "--color-body": {
+        "value": "#605d52",
+        "source": "src/index.css"
+      },
+      "--color-body-mid": {
+        "value": "#939084",
+        "source": "src/index.css"
+      },
+      "--color-muted": {
+        "value": "#939084",
+        "source": "src/index.css"
+      },
+      "--color-mute": {
+        "value": "#c5c0b1",
+        "source": "src/index.css"
+      },
+      "--color-canvas": {
+        "value": "#fffefb",
+        "source": "src/index.css"
+      },
+      "--color-canvas-soft": {
+        "value": "#f8f4f0",
+        "source": "src/index.css"
+      },
+      "--color-surface-card": {
+        "value": "#fffefb",
+        "source": "src/index.css"
+      },
+      "--color-surface-cream": {
+        "value": "#f8f4f0",
+        "source": "src/index.css"
+      },
+      "--color-surface-soft": {
+        "value": "#f8f4f0",
+        "source": "src/index.css"
+      },
+      "--color-surface-strong": {
+        "value": "#f0ebe4",
+        "source": "src/index.css"
+      },
+      "--color-surface-dark": {
+        "value": "#201515",
+        "source": "src/index.css"
+      },
+      "--color-surface-dark-elevated": {
+        "value": "#2d2020",
+        "source": "src/index.css"
+      },
+      "--color-on-dark": {
+        "value": "#fffefb",
+        "source": "src/index.css"
+      },
+      "--color-on-dark-soft": {
+        "value": "#c5c0b1",
+        "source": "src/index.css"
+      },
+      "--color-hairline": {
+        "value": "#ebe6df",
+        "source": "src/index.css"
+      },
+      "--color-hairline-soft": {
+        "value": "#f3eee8",
+        "source": "src/index.css"
+      },
+      "--color-hairline-strong": {
+        "value": "#d9d3c8",
+        "source": "src/index.css"
+      },
+      "--color-border-strong": {
+        "value": "#36342e",
+        "source": "src/index.css"
+      },
+      "--color-accent-amber": {
+        "value": "#ff9900",
+        "source": "src/index.css"
+      },
+      "--color-accent-coral": {
+        "value": "#ff6f47",
+        "source": "src/index.css"
+      },
+      "--color-semantic-success": {
+        "value": "#108548",
+        "source": "src/index.css"
+      },
+      "--color-semantic-error": {
+        "value": "#d9381e",
+        "source": "src/index.css"
+      },
+      "--color-text-link": {
+        "value": "#ff4f00",
+        "source": "src/index.css"
+      },
+      "--color-link": {
+        "value": "#ff4f00",
+        "source": "src/index.css"
+      },
+      "--color-link-active": {
+        "value": "#cc3f00",
+        "source": "src/index.css"
+      }
+    },
+    "typography": {
+      "--font-display": {
+        "value": "'Plus Jakarta Sans', 'Degular Display', Inter, -apple-system, sans-serif",
+        "source": "src/index.css"
+      },
+      "--font-body": {
+        "value": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        "source": "src/index.css"
+      },
+      "--font-mono": {
+        "value": "'JetBrains Mono', Menlo, Monaco, Consolas, monospace",
+        "source": "src/index.css"
+      }
+    },
+    "spacing": {
+      "--space-xxs": {
+        "value": "2px",
+        "source": "src/index.css"
+      },
+      "--space-xs": {
+        "value": "4px",
+        "source": "src/index.css"
+      },
+      "--space-sm": {
+        "value": "8px",
+        "source": "src/index.css"
+      },
+      "--space-md": {
+        "value": "12px",
+        "source": "src/index.css"
+      },
+      "--space-lg": {
+        "value": "16px",
+        "source": "src/index.css"
+      },
+      "--space-xl": {
+        "value": "24px",
+        "source": "src/index.css"
+      },
+      "--space-2xl": {
+        "value": "32px",
+        "source": "src/index.css"
+      },
+      "--space-3xl": {
+        "value": "48px",
+        "source": "src/index.css"
+      },
+      "--space-4xl": {
+        "value": "64px",
+        "source": "src/index.css"
+      },
+      "--space-section": {
+        "value": "88px",
+        "source": "src/index.css"
+      }
+    },
+    "radius": {
+      "--radius-none": {
+        "value": "0px",
+        "source": "src/index.css"
+      },
+      "--radius-sm": {
+        "value": "6px",
+        "source": "src/index.css"
+      },
+      "--radius-md": {
+        "value": "12px",
+        "source": "src/index.css"
+      },
+      "--radius-lg": {
+        "value": "16px",
+        "source": "src/index.css"
+      },
+      "--radius-xl": {
+        "value": "20px",
+        "source": "src/index.css"
+      },
+      "--radius-pill": {
+        "value": "9999px",
+        "source": "src/index.css"
+      },
+      "--radius-full": {
+        "value": "9999px",
+        "source": "src/index.css"
+      }
+    },
+    "shadows": {},
+    "motion": {},
+    "density": "unknown"
+  },
+  "components": {
+    "installed": [
+      "avatar",
+      "badge",
+      "blog-3",
+      "blog-3-demo",
+      "button",
+      "card",
+      "hero-04",
+      "hero-04-demo",
+      "hero-04-utils",
+      "hero-08",
+      "hero-08-demo",
+      "hero-08-utils",
+      "rosewood-blush",
+      "rosewood-blush-demo"
+    ],
+    "preferredPrimitives": [
+      "radix-ui"
+    ],
+    "patterns": []
+  },
+  "constraints": {
+    "must": [],
+    "avoid": []
+  },
+  "decisions": [],
+  "evidence": [
+    {
+      "fact": "components.installed",
+      "source": "src/components/ui"
+    },
+    {
+      "fact": "design.colorMode:light",
+      "source": "src/index.css"
+    },
+    {
+      "fact": "design.tokens",
+      "source": "src/index.css"
+    },
+    {
+      "fact": "project.stack:react",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:shadcn",
+      "source": "components.json"
+    },
+    {
+      "fact": "project.stack:tailwind-v3",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:vite",
+      "source": "package.json"
+    }
+  ],
+  "generatedAt": "2026-10-10T17:12:47.586Z"
+}

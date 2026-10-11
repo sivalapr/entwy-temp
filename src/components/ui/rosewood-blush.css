@@ -1,0 +1,11 @@
+/* Shared Rosewood Blush recipe, matching the gradient preview. */
+.rosewood-blush-surface {
+  background-color: #b65c7e;
+  background-image:
+    radial-gradient(circle at 65.68% 46.6%, #fff1e6 0%, rgba(255, 241, 230, 0) 39.7%),
+    radial-gradient(circle at 28.5% 72.47%, #ffc9a9 0%, rgba(255, 201, 169, 0) 51.25%),
+    radial-gradient(circle at 52.7% 17.67%, #f98f7b 0%, rgba(249, 143, 123, 0) 63.15%),
+    radial-gradient(circle at 78.79% 84.35%, #b65c7e 0%, rgba(182, 92, 126, 0) 74.7%);
+  background-size: auto;
+  background-blend-mode: normal;
+}

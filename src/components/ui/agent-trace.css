@@ -1,0 +1,56 @@
+/* Native container queries keep the supplied trace compatible with Tailwind 3. */
+.agent-trace { container-type: inline-size; container-name: trace; }
+.agent-trace .trace-columns { --gutter: 112px; --meta: 48px; }
+.agent-trace .trace-columns > .trace-desktop-detail,
+.agent-trace .trace-columns > div > .trace-desktop-detail { display: none; }
+.agent-trace [data-slot="trace-span-label"] { min-width: 0; }
+@container trace (min-width: 400px) {
+  .agent-trace .trace-header-meta { display: inline; }
+  .agent-trace .trace-columns { --gutter: 148px; --meta: 64px; }
+}
+@container trace (min-width: 600px) {
+  .agent-trace .trace-columns { --gutter: var(--label-w); --meta: 144px; }
+  .agent-trace .trace-result { display: inline; }
+  .agent-trace .trace-columns > .trace-desktop-detail,
+  .agent-trace .trace-columns > div > .trace-desktop-detail { display: block; }
+}
+.home-page .home-agent-section { padding: 96px 24px; background: #f6f9fc; border-block: 1px solid #e3e8ee; }
+.home-page .home-agent-inner { max-width: 960px; margin-inline: auto; }
+.home-page .home-agent-intro { max-width: 700px; margin: 0 auto 40px; text-align: center; }
+.home-page .home-agent-label { color: #533afd; font-size: 14px; font-weight: 500; margin-bottom: 16px; }
+.home-page .home-agent-intro h2 { font-family: var(--font-display); color: #0a2540; font-size: clamp(28px, 3.2vw, 42px); font-weight: 400; line-height: 1.2; letter-spacing: -.035em; margin-bottom: 18px; }
+.home-page .home-agent-intro > p:last-child { color: #425466; font-size: 17px; line-height: 1.65; }
+.home-page .home-agent-example { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 12px; color: #64748d; font-size: 12px; }
+.home-page .home-agent-detail { min-height: 56px; padding: 16px 4px; display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 13px; color: #425466; }
+.home-page .home-agent-detail strong { color: #0a2540; }
+.home-page .home-agent-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 28px; margin-top: 24px; }
+.home-page .home-agent-links a { display: inline-flex; align-items: center; gap: 8px; color: #533afd; font-weight: 500; font-size: 15px; }
+.home-page .home-agent-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 600px) {
+  .home-page .home-agent-section { padding: 64px 16px; }
+  .home-page .home-agent-intro { text-align: left; margin-bottom: 28px; }
+  .home-page .home-agent-intro > p:last-child { font-size: 16px; }
+}
+
+/* Business workflow presentation: outcomes take precedence over debugging metadata. */
+.agent-trace[data-presentation="workflow"] [data-slot="trace-span-label"] span { font-family: var(--font-body); font-size: 13px; }
+.agent-trace[data-presentation="workflow"] [data-part="dur"] { display: none; }
+.agent-trace[data-presentation="workflow"] .trace-columns { --gutter: 158px; --meta: 0px; }
+.agent-trace[data-presentation="workflow"] [data-slot="trace-header"] > span:nth-child(2) { font-family: var(--font-body); }
+@container trace (min-width: 600px) {
+  .agent-trace[data-presentation="workflow"] .trace-columns { --gutter: var(--label-w); --meta: 156px; }
+  .agent-trace[data-presentation="workflow"] .trace-result { font-family: var(--font-body); font-size: 12px; }
+}
+.home-page .home-workflow-choices { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.home-page .home-workflow-choices button { padding: 10px 16px; border: 1px solid #d6dee8; border-radius: 6px; background: white; color: #425466; font: inherit; font-size: 14px; cursor: pointer; }
+.home-page .home-workflow-choices button[aria-pressed="true"] { background: #533afd; border-color: #533afd; color: white; }
+.home-page .home-workflow-summary { margin-bottom: 24px; max-width: 680px; }
+.home-page .home-workflow-summary h3 { font-size: 20px; font-weight: 500; letter-spacing: -.02em; margin-bottom: 8px; }
+.home-page .home-workflow-summary p { font-size: 15px; line-height: 1.65; color: #425466; }
+.home-page .home-workflow-detail { display: grid; gap: 6px; min-height: 100px; align-content: start; padding: 20px 4px 12px; font-size: 14px; line-height: 1.6; }
+.home-page .home-workflow-note { color: #64748d; font-size: 12px; line-height: 1.6; max-width: 680px; }
+@media (max-width: 600px) {
+  .home-page .home-workflow-choices { justify-content: flex-start; }
+  .home-page .home-workflow-choices button { padding: 10px 12px; }
+  .home-page .home-workflow-detail { min-height: 158px; }
+}
