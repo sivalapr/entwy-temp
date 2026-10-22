@@ -17,7 +17,8 @@ import {
   Terminal,
   ShieldCheck,
   Layers,
-  Award
+  Award,
+  Share2
 } from 'lucide-react';
 
 const pillarIcons: Record<string, React.ComponentType<{ size?: number | string; color?: string }>> = {
@@ -26,6 +27,7 @@ const pillarIcons: Record<string, React.ComponentType<{ size?: number | string; 
   ai: Bot,
   technology: Code,
   marketing: TrendingUp,
+  implementation: Share2,
 };
 
 const pillarExpandedData: Record<string, {
@@ -113,6 +115,22 @@ const pillarExpandedData: Record<string, {
       'Two-way sub-second sync between product telemetry and CRM records',
       'Automated deal desk routing dynamically matching rep capacity',
       'Self-serve developer portals with interactive sandboxes and SDK code-gen'
+    ]
+  },
+  implementation: {
+    subtitle: 'Standardized protocols, high-concurrency API middleware, and enterprise messaging infrastructure.',
+    leadParagraph: 'Bridging internal platforms and AI agents demands standardized protocols. We build hardened Model Context Protocol (MCP) servers, resilient REST/GraphQL/gRPC APIs, and official Meta WhatsApp Cloud API engines that connect enterprise systems with zero data loss.',
+    cadence: '1-to-3 week turnkey deployment with automated CI/CD and production monitoring.',
+    caseStudyRef: {
+      title: 'Global Supply Chain & ERP Automation Bus',
+      client: 'Global Logistics & Freight Enterprise',
+      metric: 'Over 120M monthly API events with sub-40ms latency',
+      link: '/work/case-study-03'
+    },
+    principles: [
+      'Strict adherence to open protocols (Model Context Protocol, OpenAPI 3.1)',
+      'Zero-trust security with OAuth 2.1, mTLS, and sandboxed RBAC',
+      'High-concurrency streaming with sub-40ms latency and 99.99% reliability'
     ]
   }
 };

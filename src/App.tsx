@@ -23,6 +23,8 @@ import { Blog3Demo } from './components/ui/blog-3-demo';
 import { GradientBackgroundDemo } from './components/ui/rosewood-blush-demo';
 import { CaseStudyModal } from './components/CaseStudyModal';
 import { CaseStudy } from './types/sitemap';
+import { ApiDevelopmentPage } from './pages/ApiDevelopmentPage';
+import { McpDevelopmentPage } from './pages/McpDevelopmentPage';
 
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
@@ -66,6 +68,20 @@ export const App: React.FC = () => {
             <Route path="/services/ai" element={<PillarDetailPage />} />
             <Route path="/services/technology" element={<PillarDetailPage />} />
             <Route path="/services/marketing" element={<PillarDetailPage />} />
+            <Route path="/services/implementation" element={<PillarDetailPage />} />
+
+            {/* Dedicated API Development & Integration Pages */}
+            <Route path="/api-development" element={<ApiDevelopmentPage />} />
+            <Route path="/services/api-development" element={<ApiDevelopmentPage />} />
+            <Route path="/services/implementation/api-integration" element={<ApiDevelopmentPage />} />
+            <Route path="/services/api-integration" element={<ApiDevelopmentPage />} />
+
+            {/* Dedicated MCP (Model Context Protocol) Pages */}
+            <Route path="/mcp-development-services" element={<McpDevelopmentPage />} />
+            <Route path="/mcp-development" element={<McpDevelopmentPage />} />
+            <Route path="/services/mcp-development" element={<McpDevelopmentPage />} />
+            <Route path="/services/implementation/mcp" element={<McpDevelopmentPage />} />
+            <Route path="/services/implementation/mcp-development-services" element={<McpDevelopmentPage />} />
 
             {/* Dedicated Individual Service Detail Pages */}
             <Route path="/services/:category/:slug" element={<ServiceDetailPage />} />

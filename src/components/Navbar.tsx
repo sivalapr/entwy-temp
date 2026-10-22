@@ -13,6 +13,8 @@ const navGroups = [
       ['AI Solutions & Autonomous Agents', '/services/ai'],
       ['Technology & Cloud Engineering', '/services/technology'],
       ['RevOps & Developer Workflows', '/services/marketing'],
+      ['API Development & Integration', '/api-development'],
+      ['MCP (Model Context Protocol)', '/mcp-development-services'],
     ],
   },
   {

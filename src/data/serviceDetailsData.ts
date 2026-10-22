@@ -1,6 +1,6 @@
 export interface ServiceDetail {
   slug: string;
-  category: 'strategy' | 'design' | 'ai' | 'technology' | 'marketing';
+  category: 'strategy' | 'design' | 'ai' | 'technology' | 'marketing' | 'implementation';
   categoryTitle: string;
   title: string;
   tagline: string;
@@ -740,5 +740,151 @@ export const allServiceDetails: Record<string, ServiceDetail> = {
     ],
     stack: ["Next.js", "TypeScript", "OpenAPI 3.1", "Fern", "Svix", "Algolia", "Tailwind"],
     metrics: "Reduced developer time-to-first-API-call from 45 minutes down to 2.5 minutes."
+  },
+
+  // =================== IMPLEMENTATION ===================
+  "api-development": {
+    slug: "api-development",
+    category: "implementation",
+    categoryTitle: "Implementation",
+    title: "API Development & Integration",
+    tagline: "Build powerful API solutions that connect disparate digital systems and enterprise tools.",
+    overview: "We architect and deploy custom RESTful, GraphQL, gRPC, and event-driven API middleware. By bridging legacy backends, modern SaaS platforms, payment gateways, and databases, we eliminate manual data reentry and unlock real-time enterprise connectivity.",
+    keyCapabilities: [
+      { name: "Custom API & Microservices", desc: "High-concurrency REST, GraphQL, and gRPC endpoints engineered for sub-40ms p95 latency." },
+      { name: "Enterprise System Bridges", desc: "Bidirectional synchronization between Salesforce, SAP NetWeaver, Oracle, and internal core databases." },
+      { name: "Security & Zero-Trust Gateways", desc: "OAuth 2.1, mutual TLS (mTLS), token rate-limiting, and OWASP API Top 10 hardened defenses." },
+      { name: "Event-Driven Message Streaming", desc: "Kafka, RabbitMQ, and Redis Streams providing persistent event topics with exactly-once delivery." }
+    ],
+    technicalApproach: [
+      "OpenAPI 3.1 contract-first design with automated schema validation",
+      "Circuit breaker patterns and connection pooling for fault tolerance",
+      "Comprehensive load validation using k6 and automated regression suites",
+      "Distributed OpenTelemetry tracing and Prometheus/Grafana monitoring"
+    ],
+    deliverables: [
+      "Production API Middleware & Gateway Codebase",
+      "Interactive OpenAPI 3.1 Swagger Portal & Postman Collections",
+      "Automated CI/CD Integration Testing Harness",
+      "24/7 Distributed Tracing & Telemetry Dashboard"
+    ],
+    stack: ["Go (Golang)", "TypeScript", "FastAPI", "Kong", "Apache Kafka", "PostgreSQL", "Redis", "Docker"],
+    metrics: "Over 250 API projects delivered with 99.99% uptime and sub-40ms average response latency."
+  },
+
+  "api-integration": {
+    slug: "api-integration",
+    category: "implementation",
+    categoryTitle: "Implementation",
+    title: "API Integration Services",
+    tagline: "Resilient GraphQL, gRPC, REST and webhook integrations connecting fragmented enterprise systems.",
+    overview: "Seamlessly integrate third-party applications, internal platforms, payment processors, and cloud databases into unified operational pipelines.",
+    keyCapabilities: [
+      { name: "Third-Party SaaS Integrations", desc: "Deep integrations with Stripe, Salesforce, HubSpot, Jira, Slack, and Workday." },
+      { name: "Data Synchronization Pipelines", desc: "Automated ETL and change-data-capture synchronization eliminating data silos." },
+      { name: "Legacy System Wrapping", desc: "Strangler Fig patterns wrapping on-premise databases in clean, modern API facades." },
+      { name: "Webhook Brokers", desc: "Reliable webhook delivery and ingestion engines with cryptographically signed verification." }
+    ],
+    technicalApproach: [
+      "Idempotent event processing with distributed Redis locks",
+      "Rate-limit management with exponential backoff retry algorithms",
+      "End-to-end payload encryption using AES-256 and TLS 1.3",
+      "Automated regression contract testing"
+    ],
+    deliverables: [
+      "Enterprise Integration Pipeline Code",
+      "Connector Documentation & Runbooks",
+      "Automated Test Harnesses",
+      "SLA & Monitoring Configurations"
+    ],
+    stack: ["TypeScript", "Node.js", "Python", "Kong", "RabbitMQ", "PostgreSQL", "Redis"],
+    metrics: "Eliminated over 1,200 manual data entry hours monthly across connected enterprise stacks."
+  },
+
+  "mcp-development-services": {
+    slug: "mcp-development-services",
+    category: "implementation",
+    categoryTitle: "Implementation",
+    title: "MCP (Model Context Protocol) Development",
+    tagline: "Scale enterprise AI with standardized Model Context Protocol servers.",
+    overview: "We develop secure, production-grade Model Context Protocol (MCP) servers that bridge LLMs and autonomous agents with internal databases, private APIs, SaaS platforms, and enterprise file systems via standardized JSON-RPC interfaces.",
+    keyCapabilities: [
+      { name: "Custom MCP Server Development", desc: "High-throughput servers in TypeScript, Python, or Go implementing Anthropic's open protocol." },
+      { name: "Database & Schema Bridges", desc: "Schema-aware read/write connectors for PostgreSQL, MySQL, MongoDB, Snowflake, and BigQuery." },
+      { name: "Agentic Tool & Workflow Orchestration", desc: "Exposing governed Tools, Resources, and Prompts to Claude Desktop, Cursor, and custom copilots." },
+      { name: "Enterprise Security & RBAC Guardrails", desc: "OAuth 2.1 authentication, scoped token boundaries, and sandboxed file system allowlists." }
+    ],
+    technicalApproach: [
+      "Strict JSON-RPC 2.0 adherence with stdio and streamable HTTP + SSE transports",
+      "Zod and Pydantic v2 runtime type safety and parameter validation",
+      "Zero-trust credential isolation preventing model access to raw secrets",
+      "Automated protocol capability negotiation and backward-compatibility suites"
+    ],
+    deliverables: [
+      "Production-Grade MCP Server Repository",
+      "Claude Desktop & Cursor IDE Configuration Manifests",
+      "OAuth 2.1 & Scoped Permission Policy Definitions",
+      "Docker Containerization & Kubernetes Helm Deployment Charts"
+    ],
+    stack: ["TypeScript", "Node.js", "Python", "JSON-RPC 2.0", "stdio", "HTTP + SSE", "Zod", "Docker", "OAuth 2.1"],
+    metrics: "Average 70% reduction in manual workflow latency and 100K+ monthly agent tool executions."
+  },
+
+  "mcp-development": {
+    slug: "mcp-development",
+    category: "implementation",
+    categoryTitle: "Implementation",
+    title: "MCP Development Services",
+    tagline: "Scale enterprise AI with standardized Model Context Protocol servers.",
+    overview: "We develop secure, production-grade Model Context Protocol (MCP) servers that bridge LLMs and autonomous agents with internal databases, private APIs, SaaS platforms, and enterprise file systems via standardized JSON-RPC interfaces.",
+    keyCapabilities: [
+      { name: "Custom MCP Server Development", desc: "High-throughput servers in TypeScript, Python, or Go implementing Anthropic's open protocol." },
+      { name: "Database & Schema Bridges", desc: "Schema-aware read/write connectors for PostgreSQL, MySQL, MongoDB, Snowflake, and BigQuery." },
+      { name: "Agentic Tool & Workflow Orchestration", desc: "Exposing governed Tools, Resources, and Prompts to Claude Desktop, Cursor, and custom copilots." },
+      { name: "Enterprise Security & RBAC Guardrails", desc: "OAuth 2.1 authentication, scoped token boundaries, and sandboxed file system allowlists." }
+    ],
+    technicalApproach: [
+      "Strict JSON-RPC 2.0 adherence with stdio and streamable HTTP + SSE transports",
+      "Zod and Pydantic v2 runtime type safety and parameter validation",
+      "Zero-trust credential isolation preventing model access to raw secrets",
+      "Automated protocol capability negotiation and backward-compatibility suites"
+    ],
+    deliverables: [
+      "Production-Grade MCP Server Repository",
+      "Claude Desktop & Cursor IDE Configuration Manifests",
+      "OAuth 2.1 & Scoped Permission Policy Definitions",
+      "Docker Containerization & Kubernetes Helm Deployment Charts"
+    ],
+    stack: ["TypeScript", "Node.js", "Python", "JSON-RPC 2.0", "stdio", "HTTP + SSE", "Zod", "Docker", "OAuth 2.1"],
+    metrics: "Average 70% reduction in manual workflow latency and 100K+ monthly agent tool executions."
+  },
+
+  "whatsapp-marketing": {
+    slug: "whatsapp-marketing",
+    category: "implementation",
+    categoryTitle: "Implementation",
+    title: "WhatsApp Marketing & Automation",
+    tagline: "Official Meta WhatsApp Business Cloud API workflows and conversational intelligence.",
+    overview: "Transform WhatsApp from an ad-hoc messaging channel into an automated revenue engine. We deploy conversational AI agents, transactional order notifications, broadcast segmentation, and CRM-synced support workflows via the official Meta WhatsApp Business API.",
+    keyCapabilities: [
+      { name: "Official Cloud API Setup & Verification", desc: "Direct Meta Business Manager verification, high-tier phone number provisioning, and green tick badge enablement." },
+      { name: "Conversational AI Copilots", desc: "Autonomous multilingual bots handling customer queries, product recommendations, and appointment bookings 24/7." },
+      { name: "CRM & Payment Sync", desc: "Bidirectional integration with HubSpot, Shopify, Salesforce, and Stripe payment links within the chat." },
+      { name: "Targeted Broadcast Campaigns", desc: "Compliant opt-in broadcast marketing with dynamic template parameters and real-time open/click analytics." }
+    ],
+    technicalApproach: [
+      "Official Meta WhatsApp Business Cloud API integration",
+      "Multi-agent handoff to human support with Zendesk / Freshdesk integration",
+      "Automated template approvals conforming to Meta 24-hour service windows",
+      "Comprehensive webhook delivery monitoring with Redis retry queues"
+    ],
+    deliverables: [
+      "WhatsApp Business Cloud API Architecture",
+      "Conversational Flow Design & Agent Codebase",
+      "CRM & Payment Gateway Webhook Integrations",
+      "Campaign Analytics & Broadcast Automation Portal"
+    ],
+    stack: ["WhatsApp Cloud API", "Node.js", "Meta Graph API", "HubSpot", "Shopify", "Stripe", "Redis"],
+    metrics: "Achieved 98% open rates and 45% higher conversion compared to traditional email campaigns."
   }
 };

@@ -8,6 +8,8 @@ const columns: FooterColumn[] = [
     { label: 'Design & UX', href: '/services/design' },
     { label: 'AI & automation', href: '/services/ai' },
     { label: 'Cloud engineering', href: '/services/technology' },
+    { label: 'API development & integration', href: '/api-development' },
+    { label: 'MCP development services', href: '/mcp-development-services' },
     { label: 'Marketing & RevOps', href: '/services/marketing' },
   ] },
   { title: 'Solutions', links: [

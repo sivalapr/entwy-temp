@@ -68,6 +68,17 @@ export const servicesPillarsData = {
       { name: 'Developers', desc: 'Developer productivity tools, automated documentation, and API test runners.', slug: 'developers' },
     ],
   },
+  implementation: {
+    id: 'implementation',
+    title: 'Implementation',
+    iconName: 'Share2',
+    desc: 'Mission-critical integration protocols, conversational marketing engines, and standardized Model Context Protocol servers.',
+    items: [
+      { name: 'WhatsApp Marketing', desc: 'Automated conversational flows, multi-agent customer support, and broadcast messaging via official Meta APIs.', slug: 'whatsapp-marketing' },
+      { name: 'API Integration', desc: 'Resilient GraphQL, gRPC, REST and webhook integrations connecting fragmented enterprise systems.', slug: 'api-development' },
+      { name: 'MCP (Model Context Protocol)', desc: 'Standardized client-server protocol bridging AI copilots with internal databases, tools, and enterprise APIs.', slug: 'mcp-development-services' },
+    ],
+  },
 };
 
 // ==========================================

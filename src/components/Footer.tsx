@@ -50,6 +50,8 @@ export const Footer: React.FC = () => {
               <li><Link to="/services/ai">Autonomous AI &amp; Agents</Link></li>
               <li><Link to="/services/technology">Cloud Engineering</Link></li>
               <li><Link to="/services/marketing">Developer &amp; RevOps</Link></li>
+              <li><Link to="/api-development">API Development &amp; Integration</Link></li>
+              <li><Link to="/mcp-development-services">MCP Development Services</Link></li>
             </ul>
           </div>
 
