@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { servicesPillarsData } from '../data/sitemapData';
-import { 
-  ArrowRight, 
-  Bot, 
-  Code, 
-  Compass, 
-  Palette, 
-  Sparkles, 
-  TrendingUp, 
-  Zap, 
+import {
+  ArrowRight,
+  Bot,
+  Code,
+  Compass,
+  Palette,
+  Sparkles,
+  TrendingUp,
+  Zap,
   Share2,
   ShieldCheck,
   Clock,
