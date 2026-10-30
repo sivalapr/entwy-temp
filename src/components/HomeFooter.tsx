@@ -1,6 +1,7 @@
 import React from 'react';
 import DitheredFooter, { type FooterColumn } from './ui/dithered-footer';
 import { EntwyLogo } from './EntwyLogo';
+import { submitNewsletterSubscriber } from '../lib/firebase';
 
 const columns: FooterColumn[] = [
   { title: 'Services', links: [
@@ -34,6 +35,10 @@ const columns: FooterColumn[] = [
 ];
 
 export function HomeFooter() {
+  const handleSubscribe = async (email: string) => {
+    await submitNewsletterSubscriber(email, 'Homepage Footer');
+  };
+
   return (
     <DitheredFooter
       brand="ENTWY"
@@ -48,6 +53,7 @@ export function HomeFooter() {
         { label: 'Terms', href: '/terms' },
       ]}
       status={null}
+      onSubscribe={handleSubscribe}
       brandContent={
         <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
           A subsidiary of{' '}
@@ -65,3 +71,4 @@ export function HomeFooter() {
   );
 }
 
+export default HomeFooter;

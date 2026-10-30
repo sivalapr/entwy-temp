@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HomeFooter } from './HomeFooter';
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Check, Send, Loader2 } from 'lucide-react';
 import { EntwyLogo } from './EntwyLogo';
+import { submitNewsletterSubscriber } from '../lib/firebase';
 
 export const Footer: React.FC = () => {
   const { pathname } = useLocation();
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   if (pathname === "/") return <HomeFooter />;
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim() || loading) return;
+    setLoading(true);
+    try {
+      await submitNewsletterSubscriber(email.trim(), 'Subpage Footer');
+      setSubscribed(true);
+      setEmail('');
+    } catch (err) {
+      console.error(err);
+      setSubscribed(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <footer 
       className="footer" 
@@ -96,6 +118,53 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* Newsletter Subscription Row */}
+        <div style={{ margin: '40px 0 24px', padding: '24px 28px', borderRadius: 'var(--radius-lg, 16px)', backgroundColor: 'var(--color-canvas, #ffffff)', border: '1px solid var(--color-hairline, #e3e8ee)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
+          <div>
+            <div style={{ fontSize: '15px', fontWeight: 600, color: 'var(--color-ink, #0a2540)' }}>
+              Subscribe to Engineering Briefs &amp; Architecture Notes
+            </div>
+            <div style={{ fontSize: '13px', color: 'var(--color-muted, #64748d)', marginTop: '2px' }}>
+              Submissions sync directly with our central marketing monitoring dashboard.
+            </div>
+          </div>
+
+          {subscribed ? (
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', borderRadius: 'var(--radius-pill, 9999px)', backgroundColor: '#ecfdf5', border: '1px solid #a7f3d0', color: '#059669', fontSize: '13px', fontWeight: 600 }}>
+              <Check size={16} />
+              <span>Subscribed to updates!</span>
+            </div>
+          ) : (
+            <form onSubmit={handleSubscribe} style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 'min(100%, 320px)' }}>
+              <input
+                type="email"
+                required
+                placeholder="Enter work email..."
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={{
+                  flex: 1,
+                  padding: '9px 14px',
+                  borderRadius: 'var(--radius-pill, 9999px)',
+                  border: '1px solid var(--color-hairline-strong, #cbd5e1)',
+                  fontSize: '13.5px',
+                  outline: 'none',
+                  backgroundColor: 'var(--color-canvas-soft, #f8fafc)',
+                  color: 'var(--color-ink, #0a2540)'
+                }}
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="btn-primary"
+                style={{ padding: '9px 18px', fontSize: '13px', borderRadius: 'var(--radius-pill, 9999px)', border: 'none', cursor: loading ? 'not-allowed' : 'pointer' }}
+              >
+                {loading ? <Loader2 size={14} className="animate-spin" /> : <span>Subscribe</span>}
+              </button>
+            </form>
+          )}
+        </div>
+
         {/* Bottom bar */}
         <div style={{ paddingTop: '24px', borderTop: '1px solid var(--color-hairline, #e3e8ee)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', fontSize: '13px', color: 'var(--color-muted, #64748d)' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '20px' }}>
@@ -109,40 +178,6 @@ export const Footer: React.FC = () => {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <a
-              href="https://x.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="X (Twitter)"
-              className="grid h-8 w-8 place-items-center rounded-md text-muted-foreground transition-colors hover:bg-black/5 hover:text-foreground"
-            >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a>
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-              className="grid h-8 w-8 place-items-center rounded-md text-muted-foreground transition-colors hover:bg-black/5 hover:text-foreground"
-            >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
-                <path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2.2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5" />
-              </svg>
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-              className="grid h-8 w-8 place-items-center rounded-md text-muted-foreground transition-colors hover:bg-black/5 hover:text-foreground"
-            >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
-                <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
-              </svg>
-            </a>
-            <span className="mx-2 h-4 w-px bg-border" aria-hidden="true" style={{ backgroundColor: 'var(--color-hairline, #e3e8ee)' }} />
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

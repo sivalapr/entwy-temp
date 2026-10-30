@@ -8,6 +8,7 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
       'cn': path.resolve(__dirname, './src/lib/utils.ts'),
+      '@tabler/icons-react': path.resolve(__dirname, './node_modules/@tabler/icons-react/dist/cjs/tabler-icons-react.cjs'),
     },
   },
   server: {

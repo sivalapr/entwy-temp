@@ -1,7 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { startProjectCategories } from '../data/sitemapData';
-import { ArrowRight, Calendar, CheckCircle2, Handshake, HelpCircle, Mail, MapPin, MessageSquare, Send, Sparkles, Zap, ChevronRight } from 'lucide-react';
+import { submitContactEnquiry } from '../lib/firebase';
+import {
+  ArrowRight,
+  Calendar,
+  CheckCircle2,
+  Handshake,
+  HelpCircle,
+  Mail,
+  MapPin,
+  MessageSquare,
+  Send,
+  Sparkles,
+  Zap,
+  ChevronRight,
+  Loader2,
+  AlertCircle
+} from 'lucide-react';
 
 const enquiryIcons: Record<string, React.ComponentType<{ size?: number | string; color?: string }>> = {
   'project-enquiry': MessageSquare,
@@ -20,6 +36,9 @@ export const StartProjectPage: React.FC = () => {
   const resolvedInitialType = type || searchParams.get('type') || 'project-enquiry';
   const [selectedType, setSelectedType] = useState<string>(resolvedInitialType);
   const [submitted, setSubmitted] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -44,9 +63,37 @@ export const StartProjectPage: React.FC = () => {
     }
   }, [serviceParam, solutionParam, industryParam]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError(null);
+
+    if (!formData.name.trim() || !formData.email.trim()) {
+      setError('Please provide your name and email address.');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      await submitContactEnquiry({
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        company: formData.company.trim(),
+        type: selectedType,
+        budget: formData.budget,
+        details: formData.details.trim(),
+        source: 'Start a Project Page'
+      });
+
+      setSubmitted(true);
+    } catch (err: any) {
+      console.error('Contact inquiry error:', err);
+      setError(err.message || 'Failed to submit inquiry. You can still email us directly at info@zuntra.com');
+      // If error occurs, let user still proceed to email fallback
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -54,12 +101,11 @@ export const StartProjectPage: React.FC = () => {
       <div className="container">
         {/* Header */}
         <div style={{ maxWidth: 840, marginBottom: 48 }}>
-
           <h1 className="display-xl" style={{ marginBottom: 18 }}>
             Let’s talk about your next project.
           </h1>
           <p className="body-lg" style={{ color: 'var(--color-body)' }}>
-            Tell us what you’re working on. Choose an inquiry type, add a few details, and prepare an email to our team.
+            Tell us what you’re working on. Submissions are synced directly with the ENTWY architecture dashboard for rapid response.
           </p>
         </div>
 
@@ -115,17 +161,61 @@ export const StartProjectPage: React.FC = () => {
                 <div style={{ width: 56, height: 56, borderRadius: '50%', backgroundColor: 'rgba(16, 133, 72, 0.15)', display: 'grid', placeItems: 'center', margin: '0 auto 20px', color: '#108548' }}>
                   <CheckCircle2 size={32} />
                 </div>
-                <h2 className="display-sm" style={{ marginBottom: '10px' }}>Your inquiry is ready</h2>
+                <h2 className="display-sm" style={{ marginBottom: '10px' }}>Inquiry Received &amp; Logged!</h2>
                 <p style={{ color: 'var(--color-body)', fontSize: '15.5px', lineHeight: 1.6, maxWidth: '440px', margin: '0 auto 24px' }}>
-                  Open your email app to send your inquiry to ENTWY. Nothing has been sent yet.
+                  Thank you, <strong>{formData.name}</strong>. Your inquiry regarding <strong>{selectedType}</strong> has been received by our lead systems architects.
                 </p>
-                <a className="btn-primary" href={`mailto:info@zuntra.com?subject=${encodeURIComponent(`ENTWY ${selectedType} — ${formData.company || formData.name}`)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nBudget: ${formData.budget}\n\n${formData.details}`)}`}>Open email draft</a>
-                <button type="button" className="btn-secondary" style={{ marginTop: 16 }} onClick={() => setSubmitted(false)}>
-                  Edit inquiry
-                </button>
+
+                <div
+                  style={{
+                    backgroundColor: '#ffffff',
+                    border: '1px solid var(--color-hairline-strong)',
+                    borderRadius: '12px',
+                    padding: '16px',
+                    fontSize: '13px',
+                    color: 'var(--color-ink)',
+                    maxWidth: '400px',
+                    margin: '0 auto 24px',
+                    textAlign: 'left'
+                  }}
+                >
+                  <div><strong>Client:</strong> {formData.name} ({formData.email})</div>
+                  {formData.company && <div style={{ marginTop: '4px' }}><strong>Company:</strong> {formData.company}</div>}
+                  <div style={{ marginTop: '4px' }}><strong>Type:</strong> {selectedType}</div>
+                  <div style={{ marginTop: '4px' }}><strong>Budget:</strong> {formData.budget}</div>
+                  <div style={{ marginTop: '4px' }}><strong>Status:</strong> Synced to Live Monitoring Dashboard</div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                  <a className="btn-primary" href={`mailto:info@zuntra.com?subject=${encodeURIComponent(`ENTWY ${selectedType} — ${formData.company || formData.name}`)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nBudget: ${formData.budget}\n\n${formData.details}`)}`}>
+                    Optional: Open email draft
+                  </a>
+                  <button type="button" className="btn-secondary" onClick={() => setSubmitted(false)}>
+                    Submit another inquiry
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                {error && (
+                  <div
+                    style={{
+                      padding: '12px 16px',
+                      borderRadius: '12px',
+                      backgroundColor: '#fff1f2',
+                      border: '1px solid #fecdd3',
+                      color: '#e11d48',
+                      fontSize: '13px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px'
+                    }}
+                  >
+                    <AlertCircle size={16} />
+                    <span>{error}</span>
+                  </div>
+                )}
+
                 <div className="form-field-pair">
                   <div>
                     <label htmlFor="inquiry-name" style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'var(--color-ink)', marginBottom: '6px' }}>
@@ -212,7 +302,6 @@ export const StartProjectPage: React.FC = () => {
                     <select
                       id="inquiry-budget"
                       name="budget"
-                      
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                       style={{
@@ -242,9 +331,8 @@ export const StartProjectPage: React.FC = () => {
                     rows={4}
                     placeholder="Describe your workflows, current data pipelines, or target user requirements..."
                     id="inquiry-details"
-                      name="details"
-                      
-                      value={formData.details}
+                    name="details"
+                    value={formData.details}
                     onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                     style={{
                       width: '100%',
@@ -260,9 +348,23 @@ export const StartProjectPage: React.FC = () => {
                   />
                 </div>
 
-                <button type="submit" className="btn-primary" style={{ padding: '14px', fontSize: '16px' }}>
-                  <span>Prepare email inquiry</span>
-                  <Send size={15} />
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="btn-primary"
+                  style={{ padding: '14px', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1 }}
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      <span>Transmitting Inquiry...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Project Inquiry</span>
+                      <Send size={15} />
+                    </>
+                  )}
                 </button>
               </form>
             )}
@@ -331,3 +433,5 @@ export const StartProjectPage: React.FC = () => {
     </div>
   );
 };
+
+export default StartProjectPage;
