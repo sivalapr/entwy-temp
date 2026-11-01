@@ -25,6 +25,7 @@ import { CaseStudyModal } from './components/CaseStudyModal';
 import { CaseStudy } from './types/sitemap';
 import { ApiDevelopmentPage } from './pages/ApiDevelopmentPage';
 import { McpDevelopmentPage } from './pages/McpDevelopmentPage';
+import { RouteSeo } from './components/RouteSeo';
 
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
@@ -42,6 +43,7 @@ export const App: React.FC = () => {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <RouteSeo />
       <div className="entwy-app">
         <a className="site-skip-link" href="#main-content">Skip to content</a>
         {/* 64px Global Pinned Navbar */}

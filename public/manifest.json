@@ -1,0 +1,22 @@
+{
+  "short_name": "ENTWY",
+  "name": "ENTWY — Transformative AI from Insight to Impact",
+  "description": "ENTWY helps organizations put reliable data, intelligent automation, and scalable AI solutions to work.",
+  "icons": [
+    {
+      "src": "/entwy-icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/entwy-logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#060911",
+  "theme_color": "#060911",
+  "display": "standalone",
+  "orientation": "portrait"
+}

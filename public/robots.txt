@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Prevent search indexing of internal demo components
+Disallow: /hero-08-demo
+Disallow: /hero-04-demo
+Disallow: /blog-3-demo
+Disallow: /rosewood-blush-demo
+
+# Host and Sitemap
+Host: https://entwy.com
+Sitemap: https://entwy.com/sitemap.xml
