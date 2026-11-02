@@ -606,6 +606,7 @@ code, pre, .font-mono {
   justify-content: space-between;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .nav-left {
@@ -738,6 +739,300 @@ code, pre, .font-mono {
   opacity: 1;
   transform: translateX(0);
 }
+
+/* Services Mega Dropdown */
+.nav-dropdown-mega-host {
+  /* stay in normal flow so siblings keep their positions */
+  position: static !important;
+}
+
+/* The panel is positioned relative to .top-nav (position:fixed, full width).  */
+/* We break out of the container padding by using left/right instead of centering. */
+.nav-services-mega-menu {
+  position: fixed;
+  top: var(--nav-height);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1120px, calc(100vw - 48px));
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-top: none;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 20px 40px -8px rgba(15, 23, 42, 0.12), 0 1px 3px rgba(0,0,0,0.04);
+  padding: 20px 24px 22px;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: navMegaFadeIn 0.14s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes navMegaFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.mega-menu-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+  gap: 16px;
+}
+
+.mega-menu-overview-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 4px 8px;
+  margin-left: -8px;
+  transition: all 0.15s ease;
+}
+
+.mega-menu-overview-link:hover {
+  background-color: #f8fafc;
+}
+
+.mega-menu-overview-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background-color: #f3e8ff;
+  border: 1px solid #d8b4fe;
+  color: #6b21a8;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 6px;
+}
+
+.mega-menu-overview-tagline {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 400;
+}
+
+.mega-overview-arrow {
+  color: #9333ea;
+  opacity: 0;
+  transform: translateX(-3px);
+  transition: all 0.15s ease;
+}
+
+.mega-menu-overview-link:hover .mega-overview-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mega-menu-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #6366f1;
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.mega-menu-action-link:hover {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+.mega-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.mega-pillar-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mega-pillar-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: all 0.15s ease;
+}
+
+.mega-pillar-header:hover {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+}
+
+.mega-pillar-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mega-service-pill {
+  display: block;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 7px;
+  padding: 7px 9px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #1e293b;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.14s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.mega-service-pill:hover {
+  border-color: var(--pillar-hover-border, #6366f1);
+  background-color: var(--pillar-hover-bg, #f8fafc);
+  color: var(--pillar-hover-text, #4338ca);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.mega-implementation-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  background: linear-gradient(90deg, #f0f7ff 0%, #f5f3ff 100%);
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+}
+
+.mega-impl-header {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.mega-impl-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.mega-impl-pill {
+  padding: 8px 12px;
+  font-size: 12.5px;
+}
+
+/* Mobile Services Pillars */
+.mobile-services-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 0 12px;
+}
+
+.mobile-category-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mobile-category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.mobile-category-links {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  border-left: 2px solid #f1f5f9;
+  gap: 2px;
+}
+
+/* Services panel — same look as other dropdowns, wider with column layout */
+.nav-services-panel {
+  min-width: 560px;
+  padding: 6px 6px 8px;
+}
+
+.services-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px 4px;
+}
+
+.services-panel-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 6px 0;
+}
+
+/* Second row of 3 groups — add a top border as separator */
+.services-panel-group:nth-child(n+4) {
+  border-top: 1px solid var(--color-hairline);
+  padding-top: 10px;
+}
+.services-panel-group:nth-child(4) { border-top: 1px solid var(--color-hairline); }
+.services-panel-group:nth-child(5) { border-top: 1px solid var(--color-hairline); }
+.services-panel-group:nth-child(6) { border-top: 1px solid var(--color-hairline); }
+
+.services-panel-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-primary);
+  background-color: var(--color-primary-bg-subdued);
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin: 2px 8px 4px;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: background-color 0.15s ease;
+}
+
+.services-panel-category:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.services-panel-item {
+  padding: 6px 14px;
+  font-size: 13px;
+}
+
 
 .nav-direct-link {
   font-family: var(--font-body);
