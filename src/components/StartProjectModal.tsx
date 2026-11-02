@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { X, CheckCircle, Calendar, ArrowRight, ShieldCheck, Terminal } from 'lucide-react';
+import { X, CheckCircle, Calendar, ArrowRight, ShieldCheck, Terminal, Loader2 } from 'lucide-react';
+import { submitContactEnquiry } from '../lib/firebase';
 
 interface StartProjectModalProps {
   isOpen: boolean;
@@ -12,12 +13,31 @@ export const StartProjectModal: React.FC<StartProjectModalProps> = ({ isOpen, on
   const [timeline, setTimeline] = useState('4 - 8 Weeks');
   const [formData, setFormData] = useState({ name: '', email: '', company: '', details: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+
+    try {
+      await submitContactEnquiry({
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        company: formData.company.trim(),
+        type: projectType,
+        budget: budget,
+        details: `Timeline: ${timeline}. ${formData.details.trim()}`,
+        source: 'Project Scoping Modal'
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Failed to submit from modal:', err);
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleReset = () => {
@@ -34,7 +54,6 @@ export const StartProjectModal: React.FC<StartProjectModalProps> = ({ isOpen, on
 
         {!submitted ? (
           <div>
-
             <h2 className="display-md" style={{ fontSize: '26px', marginBottom: '8px' }}>
               Start a Project with ENTWY
             </h2>
@@ -154,9 +173,23 @@ export const StartProjectModal: React.FC<StartProjectModalProps> = ({ isOpen, on
                   <span>Strict Mutual NDA · 100% Client IP Ownership</span>
                 </div>
 
-                <button type="submit" className="btn-primary" style={{ padding: '12px 24px' }}>
-                  <span>Request Technical Scoping Brief</span>
-                  <ArrowRight size={15} />
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="btn-primary"
+                  style={{ padding: '12px 24px', display: 'flex', alignItems: 'center', gap: '8px', cursor: loading ? 'not-allowed' : 'pointer' }}
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 size={16} className="animate-spin" />
+                      <span>Transmitting...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Request Technical Scoping Brief</span>
+                      <ArrowRight size={15} />
+                    </>
+                  )}
                 </button>
               </div>
             </form>
@@ -172,7 +205,7 @@ export const StartProjectModal: React.FC<StartProjectModalProps> = ({ isOpen, on
             </h3>
 
             <p className="body-md" style={{ maxWidth: '480px', margin: '0 auto 24px', color: 'var(--color-body)' }}>
-              Our Managing Architect has received your scope request for <strong>{projectType}</strong>. A tailored technical assessment and calendar invitation has been sent to <strong>{formData.email || 'your email'}</strong>.
+              Our Managing Architect has received your scope request for <strong>{projectType}</strong>. Your inquiry has been synced directly to the ENTWY central monitor.
             </p>
 
             <div style={{ backgroundColor: 'var(--color-hairline-soft)', border: '1px solid var(--color-hairline)', borderRadius: 'var(--radius-md)', padding: '16px', maxWidth: '440px', margin: '0 auto 24px', textAlign: 'left', fontSize: '13px', fontFamily: 'var(--font-mono)' }}>

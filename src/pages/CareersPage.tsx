@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { careersSectionsData } from '../data/sitemapData';
 import { CareersEditorialHero } from '../components/CareersEditorialHero';
+import { CareerApplyModal } from '../components/CareerApplyModal';
 import { 
   ArrowRight, 
   Briefcase, 
@@ -25,6 +26,7 @@ import {
 const detailedJobOpenings = [
   {
     title: 'Staff AI / LLM Systems Engineer',
+    department: 'ENGINEERING',
     location: 'Remote / Brooklyn, NY',
     type: 'Full-time',
     comp: '$190k – $240k · 0.25% – 0.5% Equity',
@@ -45,6 +47,7 @@ const detailedJobOpenings = [
   },
   {
     title: 'Senior Full-Stack Engineer (React / Node / Go)',
+    department: 'ENGINEERING',
     location: 'Remote / Chennai, India',
     type: 'Full-time',
     comp: 'Competitive Market · Performance Bonus · Remote',
@@ -65,6 +68,7 @@ const detailedJobOpenings = [
   },
   {
     title: 'Lead Product Designer (Design Systems)',
+    department: 'PRODUCT',
     location: 'Remote / Brooklyn, NY',
     type: 'Full-time',
     comp: '$160k – $210k · Equity & Health Coverage',
@@ -85,6 +89,7 @@ const detailedJobOpenings = [
   },
   {
     title: 'Solutions Architect (Enterprise Automations)',
+    department: 'SALES',
     location: 'New York / Hybrid / Remote',
     type: 'Full-time',
     comp: '$180k – $230k · Performance Upside',
@@ -179,6 +184,18 @@ export const CareersPage: React.FC = () => {
   const [life, openRoles, internships, hiring] = careersSectionsData;
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
   const [expandedJob, setExpandedJob] = useState<string | null>(null);
+
+  // Application Modal state
+  const [applyModalOpen, setApplyModalOpen] = useState(false);
+  const [selectedRoleForApply, setSelectedRoleForApply] = useState<{ title: string; dept: string }>({
+    title: '',
+    dept: 'ENGINEERING'
+  });
+
+  const handleOpenApply = (title: string, dept: string = 'ENGINEERING') => {
+    setSelectedRoleForApply({ title, dept });
+    setApplyModalOpen(true);
+  };
 
   useEffect(() => {
     if (section && sectionRefs.current[section]) {
@@ -361,14 +378,14 @@ export const CareersPage: React.FC = () => {
                       >
                         {isExpanded ? 'Hide Details' : 'View Scope'}
                       </button>
-                      <a
-                        href={`mailto:careers@entwy.com?subject=Application:%20${encodeURIComponent(role.title)}`}
+                      <button
+                        onClick={() => handleOpenApply(role.title, role.department)}
                         className="btn-primary"
-                        style={{ padding: '8px 18px', fontSize: '13.5px' }}
+                        style={{ padding: '8px 18px', fontSize: '13.5px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
                       >
                         <span>Apply</span>
                         <ArrowRight size={14} />
-                      </a>
+                      </button>
                     </div>
                   </div>
 
@@ -441,13 +458,13 @@ export const CareersPage: React.FC = () => {
             <p style={{ fontSize: '14.5px', color: 'var(--color-body)', lineHeight: 1.6, marginBottom: '24px', fontWeight: 300 }}>
               {internships.desc} Our 12-week fellowship pairs you with senior systems architects to work on real customer cloud platforms, not simulated demo apps.
             </p>
-            <a
-              href="mailto:careers@entwy.com?subject=Fellowship%20Application%202026"
+            <button
+              onClick={() => handleOpenApply('2026 Engineering Fellowship', 'FELLOWSHIP')}
               className="dropdown-link-item"
-              style={{ color: 'var(--color-primary)', fontWeight: 600, padding: 0 }}
+              style={{ color: 'var(--color-primary)', fontWeight: 600, padding: 0, background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
             >
               <span>Apply for 2026 Engineering Fellowship &rarr;</span>
-            </a>
+            </button>
           </div>
 
           {/* Hiring Process */}
@@ -529,12 +546,24 @@ export const CareersPage: React.FC = () => {
           <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: '640px', margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 300 }}>
             We are always looking for exceptional distributed systems engineers, agent researchers, and systems designers. Send us your work.
           </p>
-          <a href="mailto:careers@entwy.com?subject=Open%20Engineering%20Application" className="btn-secondary-on-dark" style={{ padding: '13px 26px' }}>
+          <button
+            onClick={() => handleOpenApply('General Open Engineering Application', 'ENGINEERING')}
+            className="btn-secondary-on-dark"
+            style={{ padding: '13px 26px', border: 'none', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+          >
             <span>Send Open Application</span>
             <ArrowRight size={15} />
-          </a>
+          </button>
         </div>
       </div>
+
+      {/* Interactive Career Apply Modal */}
+      <CareerApplyModal
+        isOpen={applyModalOpen}
+        onClose={() => setApplyModalOpen(false)}
+        roleTitle={selectedRoleForApply.title}
+        department={selectedRoleForApply.dept}
+      />
     </div>
   );
 };
