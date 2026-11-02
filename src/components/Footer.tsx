@@ -3,6 +3,8 @@ import { HomeFooter } from './HomeFooter';
 import { Link, useLocation } from 'react-router-dom';
 import { ArrowUpRight, Check, Send, Loader2 } from 'lucide-react';
 import { EntwyLogo } from './EntwyLogo';
+import { AskAIFooter } from './AskAIFooter';
+import { ENTWY_SOCIAL_LINKS } from '../constants/socials';
 import { submitNewsletterSubscriber } from '../lib/firebase';
 
 export const Footer: React.FC = () => {
@@ -30,13 +32,13 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer 
-      className="footer" 
-      style={{ 
-        borderTop: '1px solid var(--color-hairline, #e3e8ee)', 
-        backgroundColor: 'var(--color-canvas-soft, #f6f9fc)', 
-        paddingTop: '64px', 
-        paddingBottom: '40px' 
+    <footer
+      className="footer"
+      style={{
+        borderTop: '1px solid var(--color-hairline, #e3e8ee)',
+        backgroundColor: 'var(--color-canvas-soft, #f6f9fc)',
+        paddingTop: '64px',
+        paddingBottom: '40px'
       }}
     >
       <div className="container">
@@ -58,6 +60,9 @@ export const Footer: React.FC = () => {
               <a href="https://www.zuntra.com/" target="_blank" rel="noreferrer" style={{ color: 'var(--color-primary)', fontWeight: 500 }}>
                 Zuntra Digital Pvt Ltd ↗
               </a>
+            </div>
+            <div style={{ marginTop: '22px' }}>
+              <AskAIFooter />
             </div>
           </div>
 
@@ -177,7 +182,23 @@ export const Footer: React.FC = () => {
             </Link>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '6px' }}>
+            <div className="flex flex-wrap items-center gap-1">
+              {ENTWY_SOCIAL_LINKS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  title={s.label}
+                  className="grid h-8 w-8 place-items-center rounded-md text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+            <span style={{ height: '14px', width: '1px', backgroundColor: 'var(--color-hairline, #e3e8ee)', margin: '0 4px' }} aria-hidden="true" />
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

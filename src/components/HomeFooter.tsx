@@ -2,6 +2,7 @@ import React from 'react';
 import DitheredFooter, { type FooterColumn } from './ui/dithered-footer';
 import { EntwyLogo } from './EntwyLogo';
 import { submitNewsletterSubscriber } from '../lib/firebase';
+import { ENTWY_SOCIAL_LINKS } from '../constants/socials';
 
 const columns: FooterColumn[] = [
   { title: 'Services', links: [
@@ -48,6 +49,7 @@ export function HomeFooter() {
       columns={columns}
       contact={{ label: 'Discuss your project', href: '/start-a-project' }}
       copyright={`© ${new Date().getFullYear()} ENTWY`}
+      socials={ENTWY_SOCIAL_LINKS}
       legal={[
         { label: 'Privacy', href: '/privacy' },
         { label: 'Terms', href: '/terms' },
