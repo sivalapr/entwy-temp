@@ -371,23 +371,34 @@ export const careersSectionsData = [
   },
   {
     id: 'open-positions',
-    title: 'Open Positions',
+    title: 'Internship Opportunities',
     roles: [
-      { title: 'Staff AI / LLM Systems Engineer', location: 'Remote / Brooklyn, NY', type: 'Full-time' },
-      { title: 'Senior Full-Stack Engineer (React / Node / Go)', location: 'Remote / Chennai, India', type: 'Full-time' },
-      { title: 'Lead Product Designer (Design Systems)', location: 'Remote', type: 'Full-time' },
-      { title: 'Solutions Architect (Enterprise Automations)', location: 'New York / Hybrid', type: 'Full-time' },
+      { title: 'Digital Marketing Intern', location: 'Chennai, Tamil Nadu', type: 'Internship' },
+      { title: 'UI/UX Design Intern', location: 'Chennai, Tamil Nadu', type: 'Internship' },
+      { title: 'Frontend Developer Intern', location: 'Chennai, Tamil Nadu', type: 'Internship' },
+      { title: 'Backend Developer Intern', location: 'Chennai, Tamil Nadu', type: 'Internship' },
+      { title: 'Full Stack Developer Intern', location: 'Chennai, Tamil Nadu', type: 'Internship' },
+      { title: 'AI/ML Intern', location: 'Chennai, Tamil Nadu', type: 'Internship' },
+      { title: 'Generative AI Intern', location: 'Chennai, Tamil Nadu', type: 'Internship' },
+      { title: 'HR Intern', location: 'Chennai, Tamil Nadu', type: 'Internship' },
+      { title: 'Financial Analyst Intern', location: 'Chennai, Tamil Nadu', type: 'Internship' },
+      { title: 'SaaS Sales Intern', location: 'Chennai, Tamil Nadu', type: 'Internship' },
+      { title: 'Product Management Intern', location: 'Chennai, Tamil Nadu', type: 'Internship' },
+      { title: 'Customer Support Intern', location: 'Chennai, Tamil Nadu', type: 'Internship' },
+
+
+
     ],
   },
   {
     id: 'internships',
     title: 'Internships',
-    desc: 'Accelerate your career with a 12-week immersive fellowship working directly on production client platforms with senior mentorship.',
+    desc: 'Accelerate your career across 9 high-growth departments with structured hands-on mentorship at ENTWY in Chennai, Tamil Nadu.',
   },
   {
     id: 'hiring-process',
     title: 'Hiring Process',
-    desc: 'Transparent 3-stage process: 1. Practical conversation -> 2. Hands-on collaborative pairing session -> 3. Offer within 48 hours.',
+    desc: 'Transparent 3-stage process: 1. Application review -> 2. Hands-on skills assessment / interview -> 3. Internship offer.',
   },
 ];
 

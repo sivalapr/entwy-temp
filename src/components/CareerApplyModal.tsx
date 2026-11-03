@@ -32,7 +32,7 @@ export const CareerApplyModal: React.FC<CareerApplyModalProps> = ({
     fullName: '',
     email: '',
     phone: '',
-    experience: '3-5 Years',
+    experience: 'Student / Fresher / Intern',
     linkedin: '',
     resumeUrl: '',
     coverNote: ''
@@ -84,7 +84,7 @@ export const CareerApplyModal: React.FC<CareerApplyModalProps> = ({
       fullName: '',
       email: '',
       phone: '',
-      experience: '3-5 Years',
+      experience: 'Student / Fresher / Intern',
       linkedin: '',
       resumeUrl: '',
       coverNote: ''
@@ -348,7 +348,8 @@ export const CareerApplyModal: React.FC<CareerApplyModalProps> = ({
                     <option value="3-5 Years">3 - 5 Years</option>
                     <option value="5-8 Years">5 - 8 Years</option>
                     <option value="8+ Years / Staff+">8+ Years (Staff / Principal)</option>
-                    <option value="Fellowship / Graduate">Fellowship / Student</option>
+                    <option value="Student / Fresher / Intern">Student / Fresher / Intern</option>
+                    <option value="Fellowship / Student">Fellowship / Student</option>
                   </select>
                 </div>
               </div>
