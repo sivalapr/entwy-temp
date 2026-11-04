@@ -347,10 +347,10 @@ export const SolutionsPage: React.FC = () => {
             textAlign: 'center', 
           }}
         >
-          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: '14px', fontWeight: 300 }}>
+          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: '14px', fontWeight: 600 }}>
             Ready to deploy an enterprise solution?
           </h2>
-          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: '640px', margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 300 }}>
+          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: '640px', margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 400 }}>
             Our principal architects will assess your infrastructure and deliver a customized technical delivery roadmap within 5 business days.
           </p>
           <Link to="/start-a-project" className="btn-secondary-on-dark" style={{ padding: '13px 26px' }}>

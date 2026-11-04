@@ -273,10 +273,10 @@ export const CaseStudyDetailPage: React.FC = () => {
 
         {/* Bottom CTA Band - Stripe Dark Shell */}
         <div className="cta-wave-banner" style={{ padding: '52px', textAlign: 'center' }}>
-          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: 14, fontWeight: 300 }}>
+          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: 14, fontWeight: 600 }}>
             Engineer a Similar Outcome for Your Team
           </h2>
-          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: 640, margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 300 }}>
+          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: 640, margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 400 }}>
             Our principal architects will evaluate your existing system bottlenecks and present an architectural implementation roadmap within 5 business days.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 14, flexWrap: 'wrap' }}>

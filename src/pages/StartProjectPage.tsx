@@ -389,7 +389,7 @@ export const StartProjectPage: React.FC = () => {
                 <Mail size={20} />
               </div>
               <h3 style={{ fontSize: '20px', color: '#ffffff', marginBottom: '10px', fontWeight: 500 }}>info@zuntra.com</h3>
-              <p style={{ fontSize: '13.5px', color: '#cad5e2', lineHeight: 1.5, fontWeight: 300 }}>
+              <p style={{ fontSize: '13.5px', color: '#cad5e2', lineHeight: 1.5, fontWeight: 400 }}>
                 Direct inbox monitored by managing partners. Guaranteed response within 24 business hours.
               </p>
             </a>

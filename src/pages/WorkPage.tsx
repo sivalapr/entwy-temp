@@ -198,7 +198,7 @@ export const WorkPage: React.FC = () => {
                   </h2>
                 </Link>
 
-                <p style={{ fontSize: '15.5px', color: 'var(--color-body)', lineHeight: 1.6, marginBottom: '20px', fontWeight: 300 }}>
+                <p style={{ fontSize: '15.5px', color: 'var(--color-body)', lineHeight: 1.6, marginBottom: '20px', fontWeight: 400 }}>
                   {cs.overview}
                 </p>
 
@@ -262,7 +262,7 @@ export const WorkPage: React.FC = () => {
                 <div style={{ fontSize: '18px', fontWeight: 600, color: '#ffffff', marginBottom: '12px' }}>
                   {cs.client}
                 </div>
-                <p style={{ fontSize: '13.5px', color: '#cad5e2', lineHeight: 1.55, marginBottom: '24px', fontWeight: 300 }}>
+                <p style={{ fontSize: '13.5px', color: '#cad5e2', lineHeight: 1.55, marginBottom: '24px', fontWeight: 400 }}>
                   Autonomous workflows configured with deterministic API rollback, role authorization, and tamper-proof audit logs.
                 </p>
                 <Link
@@ -389,7 +389,7 @@ export const WorkPage: React.FC = () => {
                 <h3 style={{ fontSize: '16px', fontWeight: 600, color: 'var(--color-ink)', marginBottom: '8px' }}>
                   {phase.name}
                 </h3>
-                <p style={{ fontSize: '13.5px', color: 'var(--color-body)', lineHeight: 1.55, margin: 0, fontWeight: 300 }}>
+                <p style={{ fontSize: '13.5px', color: 'var(--color-body)', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
                   {phase.desc}
                 </p>
               </div>
@@ -406,10 +406,10 @@ export const WorkPage: React.FC = () => {
             textAlign: 'center', 
           }}
         >
-          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: '14px', fontWeight: 300 }}>
+          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: '14px', fontWeight: 600 }}>
             Ready to engineer your next platform?
           </h2>
-          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: '640px', margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 300 }}>
+          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: '640px', margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 400 }}>
             Explore how ENTWY partners with fast-moving teams to deliver mission-critical platforms and autonomous workflows.
           </p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>

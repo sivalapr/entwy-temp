@@ -201,10 +201,10 @@ export default function Timeline({
   title = "How we build your product",
   subtitle = "From initial architecture review to zero-downtime production cutover.",
   periodLabel = "Sprint 01 → Production Launch",
-  textColor = "#0a2540",
-  mutedTextColor = "#425466",
-  activeColor = "#533afd",
-  backgroundColor = "#f6f9fc",
+  textColor = "var(--color-ink, #171717)",
+  mutedTextColor = "var(--color-body, #60646c)",
+  activeColor = "var(--color-expo-purple, #4630EB)",
+  backgroundColor = "var(--color-canvas-soft, #fafafa)",
   imageUrl = "/images/timeline/sprint-01-kickoff.webp",
   imageAlt = "Collaborative sprint planning, sticky notes, team discussion, and project kickoff",
   items = defaultMilestones,
@@ -331,28 +331,28 @@ export default function Timeline({
               />
             </div>
             <div className="p-5 sm:p-6">
-              <div className="mb-2 font-mono text-xs font-semibold uppercase tracking-wider text-[#533afd]">
+              <div className="mb-2 font-mono text-xs font-semibold uppercase tracking-wider text-[var(--color-expo-purple,#4630EB)]">
                 {periodLabel}
               </div>
-              <h2 id="journey-title" className="mb-2 font-display text-2xl font-light tracking-tight text-[#0a2540] sm:text-3xl">
+              <h2 id="journey-title" className="mb-2 font-display text-2xl font-light tracking-tight text-[var(--color-ink,#171717)] sm:text-3xl">
                 {title}
               </h2>
-              <p className="text-sm font-light leading-relaxed text-[#425466] sm:text-base">
+              <p className="text-sm font-light leading-relaxed text-[var(--color-body,#60646c)] sm:text-base">
                 {subtitle}
               </p>
             </div>
           </div>
 
-          <ol className="relative mt-8 space-y-6 before:absolute before:bottom-5 before:left-[11px] before:top-5 before:w-px before:bg-[#b9b9f9] sm:mt-10 sm:space-y-8">
+          <ol className="relative mt-8 space-y-6 before:absolute before:bottom-5 before:left-[11px] before:top-5 before:w-px before:bg-[var(--color-hairline-strong,#dcdee0)] sm:mt-10 sm:space-y-8">
             {items.map((item) => (
               <li key={item.id} className="relative pl-9 sm:pl-11">
                 <span
-                  className="absolute left-1 top-6 z-10 h-4 w-4 rounded-full border-[3px] border-[#533afd] bg-white shadow-[0_0_0_4px_rgba(83,58,253,0.12)]"
+                  className="absolute left-1 top-6 z-10 h-4 w-4 rounded-full border-[3px] border-[var(--color-expo-purple,#4630EB)] bg-white shadow-[0_0_0_4px_rgba(70,48,235,0.12)]"
                   aria-hidden="true"
                 />
-                <article className="rounded-2xl border border-[#e3e8ee] bg-white p-5 shadow-[0_4px_20px_rgba(10,37,64,0.06)] sm:p-6 overflow-hidden">
+                <article className="rounded-2xl border border-[var(--color-hairline,#f0f0f3)] bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] sm:p-6 overflow-hidden">
                   {item.imageUrl && (
-                    <div className="mb-4 w-full aspect-[16/10] overflow-hidden rounded-xl border border-[#e3e8ee]/80 bg-[#f8fafc]">
+                    <div className="mb-4 w-full aspect-[16/10] overflow-hidden rounded-xl border border-[var(--color-hairline,#f0f0f3)] bg-[var(--color-canvas-soft,#fafafa)]">
                       <img
                         src={item.imageUrl}
                         alt={item.imageAlt || item.title}
@@ -365,7 +365,7 @@ export default function Timeline({
                     </div>
                   )}
                   <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-                    <span className="rounded-full bg-[#533afd]/10 px-2.5 py-0.5 font-mono text-xs font-bold text-[#533afd]">
+                    <span className="rounded-full bg-[var(--color-expo-purple,#4630EB)]/10 px-2.5 py-0.5 font-mono text-xs font-bold text-[var(--color-expo-purple,#4630EB)]">
                       Stage {item.step}
                     </span>
                     {item.timeframe && (

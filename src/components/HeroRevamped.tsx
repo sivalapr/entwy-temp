@@ -43,20 +43,20 @@ export const HeroRevamped: React.FC = () => {
         >
           <div className="hero-burst-copy">
           {/* ──────────────────────────────────────────────────────────────────
-              BROAD EDITORIAL PROPOSITION
-              font-size: ~48px | weight: 300 | letter-spacing: -0.96px
-              max-width: ~960px — matches Stripe India DOM observation
+              EXPO HERO PROPOSITION
+              font-size: display-mega (64px) | weight: 600 | letter-spacing: -1.92px
+              Inter font family, line-height: 1.05
              ────────────────────────────────────────────────────────────────── */}
-          <div style={{ maxWidth: '780px', marginBottom: '40px' }}>
+          <div style={{ maxWidth: '820px', marginBottom: '40px' }}>
             <h1
               id="hero-headline"
               style={{
-                fontFamily: "var(--font-display, 'Inter', -apple-system, sans-serif)",
-                fontSize: 'clamp(36px, 4.2vw, 56px)',
-                fontWeight: 300,
-                lineHeight: 1.1,
-                letterSpacing: '-0.96px',
-                color: 'var(--color-ink, #0a2540)',
+                fontFamily: "var(--font-primary, 'Inter', -apple-system, system-ui, sans-serif)",
+                fontSize: 'clamp(40px, 5.2vw, var(--text-display-mega, 64px))',
+                fontWeight: 600,
+                lineHeight: 'var(--leading-display-mega, 1.05)',
+                letterSpacing: 'var(--tracking-display-mega, -1.92px)',
+                color: 'var(--color-ink, #171717)',
                 marginBottom: '24px',
                 textWrap: 'balance',
               }}
@@ -64,14 +64,15 @@ export const HeroRevamped: React.FC = () => {
               Software that moves your business forward.
             </h1>
 
-            {/* Supporting statement — display scale, restrained */}
+            {/* Supporting statement — Expo body typography (Inter, 400 weight, 1.5 line-height) */}
             <p
               style={{
-                fontFamily: "var(--font-body, 'Inter', sans-serif)",
-                fontSize: 'clamp(17px, 1.6vw, 20px)',
-                fontWeight: 300,
-                lineHeight: 1.6,
-                color: 'var(--color-body, #425466)',
+                fontFamily: "var(--font-family-2, 'Inter', sans-serif)",
+                fontSize: 'clamp(16px, 1.5vw, 18px)',
+                fontWeight: 400,
+                lineHeight: 'var(--leading-body-md, 1.5)',
+                letterSpacing: 'var(--tracking-body-md, 0)',
+                color: 'var(--color-body, #60646c)',
                 maxWidth: '60ch',
               }}
             >
@@ -80,7 +81,7 @@ export const HeroRevamped: React.FC = () => {
           </div>
 
           {/* ──────────────────────────────────────────────────────────────────
-              CTA ROW — pill buttons per Stripe DESIGN.md spec
+              CTA ROW — Expo buttons (8px radius, 40px height, 14px button font)
              ────────────────────────────────────────────────────────────────── */}
           <div
             style={{
@@ -96,25 +97,27 @@ export const HeroRevamped: React.FC = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '10px 20px',
-                borderRadius: '9999px',
-                backgroundColor: 'var(--color-primary, #533afd)',
+                height: '40px',
+                padding: '10px 18px',
+                borderRadius: 'var(--radius-md, 8px)',
+                backgroundColor: 'var(--color-primary, #000000)',
                 color: '#ffffff',
                 fontFamily: "var(--font-body, 'Inter', sans-serif)",
-                fontSize: '16px',
-                fontWeight: 400,
+                fontSize: 'var(--text-button, 14px)',
+                fontWeight: 500,
                 lineHeight: 1,
+                letterSpacing: '0',
                 textDecoration: 'none',
-                boxShadow: '0 4px 6px -1px rgba(83,58,253,0.25), 0 2px 4px -2px rgba(83,58,253,0.15)',
+                boxShadow: '0 1px 2px rgba(0,0,0,0.08)',
                 transition: 'background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease',
                 whiteSpace: 'nowrap',
               }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.backgroundColor = '#4434d4';
+                (e.currentTarget as HTMLElement).style.backgroundColor = '#1a1a1a';
                 (e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)';
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.backgroundColor = '#533afd';
+                (e.currentTarget as HTMLElement).style.backgroundColor = '#000000';
                 (e.currentTarget as HTMLElement).style.transform = '';
               }}
             >
@@ -128,24 +131,28 @@ export const HeroRevamped: React.FC = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '10px 20px',
-                borderRadius: '9999px',
+                height: '40px',
+                padding: '9px 17px',
+                borderRadius: 'var(--radius-md, 8px)',
                 backgroundColor: 'transparent',
-                color: 'var(--color-primary, #533afd)',
+                color: 'var(--color-ink, #171717)',
+                border: '1px solid var(--color-hairline-strong, #dcdee0)',
                 fontFamily: "var(--font-body, 'Inter', sans-serif)",
-                fontSize: '16px',
-                fontWeight: 400,
+                fontSize: 'var(--text-button, 14px)',
+                fontWeight: 500,
                 lineHeight: 1,
+                letterSpacing: '0',
                 textDecoration: 'none',
-                transition: 'color 0.15s ease',
+                transition: 'background-color 0.15s ease, border-color 0.15s ease',
                 whiteSpace: 'nowrap',
               }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.textDecoration = 'underline';
-                (e.currentTarget as HTMLElement).style.textUnderlineOffset = '3px';
+                (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--color-canvas-soft, #fafafa)';
+                (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-muted, #999999)';
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.textDecoration = 'none';
+                (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent';
+                (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-hairline-strong, #dcdee0)';
               }}
             >
               <span>View our work</span>

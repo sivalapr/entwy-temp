@@ -44,7 +44,7 @@ export function HomeFooter() {
     <DitheredFooter
       brand="ENTWY"
       brandNode={<EntwyLogo height={30} />}
-      accent="#533afd"
+      accent="#4630EB"
       tagline="Digital products, AI workflows and business systems. Designed around your needs, built for everyday use."
       columns={columns}
       contact={{ label: 'Discuss your project', href: '/start-a-project' }}

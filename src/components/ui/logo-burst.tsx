@@ -133,13 +133,13 @@ export function LogoBurst({ children, className }: { children?: ReactNode; class
         ctx.moveTo(cx + cos * core, cy + sin * core);
         ctx.quadraticCurveTo(cx + cos * length * 0.58 + bendX * 1.8,
           cy + sin * length * 0.58 + bendY * 1.8, endX + bendX, endY + bendY);
-        ctx.strokeStyle = `rgba(83,58,253,${ray.alpha * (0.5 + influence * 0.5)})`;
+        ctx.strokeStyle = `rgba(70,48,235,${ray.alpha * (0.45 + influence * 0.5)})`;
         ctx.lineWidth = ray.width + influence * 0.5;
         ctx.stroke();
         if (ray.tip && p > 0.9) {
           ctx.beginPath();
           ctx.arc(endX + bendX, endY + bendY, ray.tipSize * (1 + influence * 0.6), 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(83,58,253,${0.35 + influence * 0.55})`;
+          ctx.fillStyle = `rgba(70,48,235,${0.35 + influence * 0.55})`;
           ctx.fill();
         }
       }

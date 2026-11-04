@@ -5,13 +5,13 @@ import { GlowEffect } from './ui/glow-effect';
 
 export const CtaBandRevamped: React.FC<{ onOpenProjectModal?: () => void }> = ({ onOpenProjectModal }) => {
   return (
-    <section className="py-20 sm:py-28 relative overflow-hidden bg-[#f6f9fc]" aria-labelledby="cta-revamped-title">
+    <section className="py-20 sm:py-28 relative overflow-hidden bg-[var(--color-canvas-soft,#fafafa)]" aria-labelledby="cta-revamped-title">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Luxury Stripe Dark Shell Container */}
-        <div className="relative rounded-3xl overflow-hidden cta-wave-banner p-8 sm:p-14 lg:p-16 border border-[#1c1e54] shadow-[0_20px_60px_-15px_rgba(10,37,64,0.4)]">
+        {/* Expo Dark Shell Container */}
+        <div className="relative rounded-3xl overflow-hidden cta-wave-banner p-8 sm:p-14 lg:p-16 border border-[#262626] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
           {/* Atmospheric Mesh Glow behind the CTA card */}
           <GlowEffect 
-            colors={['#533afd', '#00d4ff', '#f96bee', '#ea2261']}
+            colors={['#4630EB', '#0d74ce', '#cfe7ff', '#8145b5']}
             mode="breathe"
             blur="stronger"
             scale={1.05}

@@ -1,13 +1,13 @@
 /* ==========================================================================
-   ENTWY DESIGN SYSTEM — STRIPE UI REVAMP
-   Anchored on Stripe Design Specification (DESIGN.md)
-   Financial-infrastructure brand built on deep navy ink (#0d253d),
-   an electric indigo primary (#533afd), signature atmospheric gradient mesh,
-   and weight-300 / 400 typography with tight negative letter-spacing.
-   Canvas: #ffffff | Canvas Soft: #f6f9fc | Ink: #0d253d
-   Typography: Sohne / Inter / SF Pro Display
-   Buttons: Tight-radius pills (9999px)
-   Cards: Pristine white on soft canvas with layered soft drop shadows
+   ENTWY DESIGN SYSTEM — EXPO BRAND SPECIFICATION
+   Anchored on Expo Brand Package (expo-brand-package)
+   Clean developer-platform brand built on near-black ink (#171717),
+   pure black primary CTAs (#000000), electric blue text link (#0d74ce),
+   signature Expo purple accent (#4630EB), and crisp neutral surfaces.
+   Canvas: #ffffff | Canvas Soft: #fafafa | Ink: #171717 | Body: #60646c
+   Typography: Inter / JetBrains Mono
+   Buttons: 6px / 8px rounded corners & pill tags
+   Cards: Pristine white on soft canvas with fine hairline borders (#f0f0f3)
    ========================================================================== */
 
 @tailwind base;
@@ -20,100 +20,187 @@
   --max-content-width: min(1360px, 92vw);
   --gutter: clamp(20px, 4vw, 56px);
 
-  /* Colors per Stripe DESIGN.md */
-  --color-primary: #533afd;              /* Stripe Electric Indigo */
-  --color-primary-deep: #4434d4;         /* Primary Deep / Hover */
-  --color-primary-hover: #4434d4;
-  --color-primary-press: #2e2b8c;        /* Primary Press / Active */
-  --color-primary-active: #2e2b8c;
-  --color-primary-soft: #665efd;
-  --color-primary-bg-subdued: #ebebfd;   /* Subtle indigo pill tint */
-  --color-primary-bg-subdued-hover: #b9b9f9;
+  /* Expo Colors per expo-brand-package */
+  --color-primary: #000000;              /* Expo Primary Black */
+  --color-primary-active: #1a1a1a;       /* Expo Primary Active */
+  --color-primary-deep: #1a1a1a;         /* Primary Deep / Hover */
+  --color-primary-hover: #1a1a1a;
+  --color-primary-press: #262626;        /* Primary Press */
+  --color-primary-soft: #4630EB;         /* Expo Signature Purple */
+  --color-primary-bg-subdued: #f0f0f3;   /* Light tinted surface */
+  --color-primary-bg-subdued-hover: #e8e0ff; /* Purple glow hover */
   --color-on-primary: #ffffff;           /* Crisp White */
 
-  --color-brand-dark-900: #0a2540;       /* Stripe Deep Navy */
-  --color-surface-dark: #0a2540;         /* Stripe Dark Shell */
-  --color-surface-dark-elevated: #1c1e54;
+  --color-expo-purple: #4630EB;          /* Expo Purple Accent */
+  --color-purple-light: #7b68ee;
+  --color-purple-glow: #e8e0ff;
+
+  --color-brand-dark-900: #171717;       /* Expo Dark Base */
+  --color-surface-dark: #171717;         /* Expo Surface Dark */
+  --color-surface-dark-elevated: #1a1a1a;
   --color-on-dark: #ffffff;
-  --color-on-dark-soft: #a8c3de;
+  --color-on-dark-soft: #b0b4ba;
 
-  --color-ink: #0d253d;                  /* Stripe Signature Navy Ink */
-  --color-ink-secondary: #273951;        /* Secondary Body Ink */
-  --color-ink-mid: #273951;
-  --color-ink-soft: #425466;
+  --color-ink: #171717;                  /* Expo Signature Ink */
+  --color-ink-secondary: #171717;        /* Expo Body Strong */
+  --color-ink-mid: #171717;
+  --color-ink-soft: #60646c;
 
-  --color-body: #273951;                 /* Refined Slate Body Copy */
-  --color-body-mid: #425466;
-  --color-muted: #64748d;                /* Muted Slate Metadata */
-  --color-mute: #61718a;
-  --color-ink-mute: #64748d;
-  --color-ink-mute-2: #61718a;
+  --color-body: #60646c;                 /* Expo Body Text */
+  --color-body-strong: #171717;
+  --color-body-mid: #60646c;
+  --color-muted: #999999;                /* Expo Muted */
+  --color-muted-soft: #cccccc;
+  --color-mute: #999999;
+  --color-ink-mute: #999999;
+  --color-ink-mute-2: #cccccc;
 
   --color-canvas: #ffffff;               /* Crisp White */
-  --color-canvas-soft: #f6f9fc;          /* Stripe Trademark Soft Canvas */
-  --color-canvas-cream: #f5e9d4;         /* Stripe Accent Cream Mesh */
-  --color-surface-card: #ffffff;
-  --color-surface-cream: #f5e9d4;
-  --color-surface-soft: #f6f9fc;
-  --color-surface-strong: #edf2f7;
+  --color-canvas-soft: #fafafa;          /* Expo Canvas Soft */
+  --color-canvas-cream: #f5f5f7;
+  --color-surface-card: #ffffff;         /* Expo Card Surface */
+  --color-surface-cream: #f5f5f7;
+  --color-surface-soft: #fafafa;
+  --color-surface-strong: #f0f0f3;       /* Expo Surface Strong */
 
-  --color-hairline: #e3e8ee;             /* Crisp Stripe Hairline Border */
-  --color-hairline-soft: #f0f4f8;
-  --color-hairline-strong: #cad5e2;
-  --color-hairline-input: #a8c3de;
-  --color-border-strong: #cad5e2;
+  --color-hairline: #f0f0f3;             /* Expo Hairline Border */
+  --color-hairline-soft: #f5f5f7;
+  --color-hairline-strong: #dcdee0;
+  --color-hairline-input: #dcdee0;
+  --color-border-strong: #dcdee0;
 
-  /* Accent & Atmospheric Mesh Tones */
-  --color-ruby: #ea2261;                 /* Stripe Ruby */
-  --color-magenta: #f96bee;              /* Stripe Magenta */
-  --color-cyan: #00d4ff;                 /* Stripe Electric Cyan */
-  --color-lemon: #f5a623;                /* Stripe Sherbet Lemon/Amber */
-  --color-shadow-blue: #003770;
+  /* Accent & Gradients */
+  --color-gradient-sky-light: #cfe7ff;
+  --color-gradient-sky-mid: #a8c8e8;
+  --color-accent-warning: #ab6400;
+  --color-accent-preview: #8145b5;
+  --color-accent-link-bright: #47c2ff;
+  --color-ruby: #eb8e90;
+  --color-magenta: #8145b5;
+  --color-cyan: #0d74ce;
+  --color-lemon: #ab6400;
+  --color-shadow-blue: #000000;
 
-  --color-semantic-success: #00d924;     /* Terminal green */
-  --color-semantic-error: #ea2261;
-  --color-text-link: #533afd;
-  --color-link: #533afd;
-  --color-link-active: #2e2b8c;
+  --color-semantic-success: #16a34a;     /* Expo Green */
+  --color-semantic-error: #eb8e90;       /* Expo Error Red */
+  --color-text-link: #0d74ce;            /* Expo Text Link Blue */
+  --color-text-link-secondary: #476cff;
+  --color-link: #0d74ce;
+  --color-link-active: #000000;
 
   /* Typography Stacks */
-  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', Menlo, Monaco, Consolas, monospace;
+  --font-primary: 'Inter', -apple-system, system-ui, sans-serif;
+  --font-family-2: 'Inter', sans-serif;
+  --font-family-3: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-display: 'Inter', -apple-system, system-ui, sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-  /* Border Radius per Stripe DESIGN.md */
+  /* Type Scale Tokens (Expo Style Reference) */
+  --text-display-mega: 64px;
+  --leading-display-mega: 1.05;
+  --tracking-display-mega: -1.92px;
+
+  --text-display-xl: 48px;
+  --leading-display-xl: 1.1;
+  --tracking-display-xl: -1.44px;
+
+  --text-display-lg: 36px;
+  --leading-display-lg: 1.15;
+  --tracking-display-lg: -1.08px;
+
+  --text-display-md: 28px;
+  --leading-display-md: 1.2;
+  --tracking-display-md: -0.84px;
+
+  --text-display-sm: 22px;
+  --leading-display-sm: 1.25;
+  --tracking-display-sm: -0.5px;
+
+  --text-title-md: 18px;
+  --leading-title-md: 1.4;
+  --tracking-title-md: 0;
+
+  --text-title-sm: 16px;
+  --leading-title-sm: 1.4;
+  --tracking-title-sm: 0;
+
+  --text-body-md: 16px;
+  --leading-body-md: 1.5;
+  --tracking-body-md: 0;
+
+  --text-body-sm: 14px;
+  --leading-body-sm: 1.5;
+  --tracking-body-sm: 0;
+
+  --text-caption: 13px;
+  --leading-caption: 1.4;
+  --tracking-caption: 0;
+
+  --text-caption-uppercase: 11px;
+  --leading-caption-uppercase: 1.4;
+  --tracking-caption-uppercase: 0.88px;
+
+  --text-code: 13px;
+  --leading-code: 1.5;
+  --tracking-code: 0;
+
+  --text-button: 14px;
+  --leading-button: 1;
+  --tracking-button: 0;
+
+  --text-nav-link: 14px;
+  --leading-nav-link: 1.4;
+  --tracking-nav-link: 0;
+
+  /* Border Radius per Expo tokens */
   --radius-none: 0px;
   --radius-xs: 4px;
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
-  --radius-2xl: 20px;
-  --radius-pill: 9999px;                 /* Stripe signature pill radius */
+  --radius-xxl: 24px;
+  --radius-2xl: 24px;
+  --radius-pill: 9999px;
   --radius-full: 9999px;
 
-  /* Spacing Scale */
-  --space-xxs: 2px;
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 12px;
-  --space-lg: 16px;
+  /* Spacing Scale per Expo (4px base) */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-base: 16px;
+  --spacing-md: 20px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-section: 96px;
+
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 20px;
   --space-xl: 24px;
   --space-2xl: 32px;
   --space-3xl: 48px;
   --space-4xl: 64px;
-  --space-section: 88px;
+  --space-section: 96px;
 
-  /* Layout Constants */
-  --max-content-width: 1240px;
-  --nav-height: 68px;
+  /* Layout Constants (Expo Style Reference) */
+  --content-max: min(1200px, 92vw);
+  --max-content-width: 1200px;
+  --nav-height: 64px;
+  --section-gap: 96px;
+  --card-padding: 24px;
+  --element-gap: 20px;
 
-  /* Multi-layered Stripe Shadows */
-  --shadow-stripe-sm: 0 2px 5px rgba(50, 50, 93, 0.08), 0 1px 1px rgba(0, 0, 0, 0.05);
-  --shadow-stripe-card: 0 13px 27px -5px rgba(50, 50, 93, 0.08), 0 8px 16px -8px rgba(0, 0, 0, 0.06), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
-  --shadow-stripe-hover: 0 30px 60px -12px rgba(50, 50, 93, 0.12), 0 18px 36px -18px rgba(0, 0, 0, 0.12), 0 -12px 36px -12px rgba(0, 0, 0, 0.03);
-  --shadow-stripe-pill: 0 4px 6px -1px rgba(83, 58, 253, 0.25), 0 2px 4px -2px rgba(83, 58, 253, 0.15);
-  --shadow-stripe-pill-hover: 0 7px 14px -3px rgba(83, 58, 253, 0.3), 0 3px 6px -2px rgba(83, 58, 253, 0.2);
+  /* Clean Expo Elevation & Border-first Shadows */
+  --shadow-stripe-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.02);
+  --shadow-stripe-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-stripe-hover: 0 6px 20px rgba(0, 0, 0, 0.07);
+  --shadow-stripe-pill: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-stripe-pill-hover: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
 /* ==========================================================================
@@ -136,7 +223,7 @@ html {
 }
 
 body {
-  line-height: 1.55;
+  line-height: var(--leading-body-md);
   overflow-x: hidden;
   background-color: var(--color-canvas);
   color: var(--color-ink);
@@ -160,110 +247,138 @@ button {
 }
 
 code, pre, .font-mono {
-  font-family: var(--font-mono);
+  font-family: var(--font-family-3);
+  font-size: var(--text-code);
+  line-height: var(--leading-code);
 }
 
 /* ==========================================================================
-   TYPOGRAPHY SPECIFICATION (STRIPE DESIGN TOKENS)
-   Weight 300 / 400 lightness with negative letter-spacing for editorial elegance
+   TYPOGRAPHY SPECIFICATION (EXPO STYLE REFERENCE: Inter display 600, body 400)
    ========================================================================== */
+.display-mega {
+  font-family: var(--font-primary);
+  font-size: var(--text-display-mega);
+  font-weight: 600;
+  line-height: var(--leading-display-mega);
+  letter-spacing: var(--tracking-display-mega);
+  color: var(--color-ink);
+}
+
 .display-xxl {
-  font-family: var(--font-display);
-  font-size: clamp(38px, 6vw, 56px);
-  font-weight: 300;
-  line-height: 1.05;
-  letter-spacing: -0.035em;
+  font-family: var(--font-primary);
+  font-size: clamp(38px, 5.2vw, var(--text-display-mega));
+  font-weight: 600;
+  line-height: var(--leading-display-mega);
+  letter-spacing: var(--tracking-display-mega);
   color: var(--color-ink);
 }
 
 .display-xl {
-  font-family: var(--font-display);
-  font-size: clamp(32px, 5.2vw, 48px);
-  font-weight: 300;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  font-family: var(--font-family-2);
+  font-size: clamp(32px, 4vw, var(--text-display-xl));
+  font-weight: 600;
+  line-height: var(--leading-display-xl);
+  letter-spacing: var(--tracking-display-xl);
   color: var(--color-ink);
 }
 
 .display-lg {
-  font-family: var(--font-display);
-  font-size: clamp(26px, 4vw, 36px);
-  font-weight: 300;
-  line-height: 1.15;
-  letter-spacing: -0.025em;
+  font-family: var(--font-family-2);
+  font-size: clamp(26px, 3.2vw, var(--text-display-lg));
+  font-weight: 600;
+  line-height: var(--leading-display-lg);
+  letter-spacing: var(--tracking-display-lg);
   color: var(--color-ink);
 }
 
 .display-md {
-  font-family: var(--font-display);
-  font-size: clamp(22px, 3.2vw, 28px);
-  font-weight: 300;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
+  font-family: var(--font-family-2);
+  font-size: var(--text-display-md);
+  font-weight: 600;
+  line-height: var(--leading-display-md);
+  letter-spacing: var(--tracking-display-md);
   color: var(--color-ink);
 }
 
 .display-sm {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 1.3;
-  letter-spacing: -0.015em;
+  font-family: var(--font-family-2);
+  font-size: var(--text-display-sm);
+  font-weight: 600;
+  line-height: var(--leading-display-sm);
+  letter-spacing: var(--tracking-display-sm);
   color: var(--color-ink);
 }
 
 .title-lg {
-  font-family: var(--font-display);
+  font-family: var(--font-family-2);
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.35;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
   color: var(--color-ink);
 }
 
 .title-md {
-  font-family: var(--font-display);
-  font-size: 19px;
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -0.01em;
+  font-family: var(--font-family-2);
+  font-size: var(--text-title-md);
+  font-weight: 600;
+  line-height: var(--leading-title-md);
+  letter-spacing: var(--tracking-title-md);
   color: var(--color-ink);
 }
 
 .title-sm {
-  font-family: var(--font-display);
-  font-size: 16.5px;
+  font-family: var(--font-family-2);
+  font-size: var(--text-title-sm);
   font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -0.005em;
+  line-height: var(--leading-title-sm);
+  letter-spacing: var(--tracking-title-sm);
   color: var(--color-ink);
 }
 
 .body-lg {
-  font-family: var(--font-body);
+  font-family: var(--font-family-2);
   font-size: 17px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.6;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   color: var(--color-body);
 }
 
 .body-md {
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 1.6;
-  letter-spacing: 0;
+  font-family: var(--font-family-2);
+  font-size: var(--text-body-md);
+  font-weight: 400;
+  line-height: var(--leading-body-md);
+  letter-spacing: var(--tracking-body-md);
   color: var(--color-body);
 }
 
 .body-sm {
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.5;
-  letter-spacing: 0;
+  font-family: var(--font-family-2);
+  font-size: var(--text-body-sm);
+  font-weight: 400;
+  line-height: var(--leading-body-sm);
+  letter-spacing: var(--tracking-body-sm);
   color: var(--color-body);
+}
+
+.caption {
+  font-family: var(--font-family-2);
+  font-size: var(--text-caption);
+  font-weight: 400;
+  line-height: var(--leading-caption);
+  letter-spacing: var(--tracking-caption);
+  color: var(--color-muted);
+}
+
+.caption-uppercase {
+  font-family: var(--font-family-2);
+  font-size: var(--text-caption-uppercase);
+  font-weight: 600;
+  line-height: var(--leading-caption-uppercase);
+  letter-spacing: var(--tracking-caption-uppercase);
+  text-transform: uppercase;
 }
 
 .body-tabular {
@@ -424,7 +539,7 @@ code, pre, .font-mono {
 }
 
 /* ==========================================================================
-   BUTTONS (STRIPE SPECIFICATION: Pill Radius 9999px, #533afd Electric Indigo)
+   BUTTONS (EXPO SPECIFICATION: 8px Radius (rounded.md), 40px Height, 14px Font)
    ========================================================================== */
 .btn-primary {
   display: inline-flex;
@@ -434,15 +549,17 @@ code, pre, .font-mono {
   background-color: var(--color-primary);
   color: var(--color-on-primary);
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: var(--text-button, 14px);
   font-weight: 500;
-  line-height: 1.0;
-  padding: 11px 22px;
-  border-radius: var(--radius-pill);
+  line-height: var(--leading-button, 1);
+  letter-spacing: var(--tracking-button, 0);
+  height: 40px;
+  padding: 10px 18px;
+  border-radius: var(--radius-md, 8px);
   border: 1px solid var(--color-primary);
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
   max-width: 100%;
   box-shadow: var(--shadow-stripe-pill);
@@ -475,17 +592,19 @@ code, pre, .font-mono {
   justify-content: center;
   gap: 8px;
   background-color: var(--color-canvas);
-  color: var(--color-primary);
+  color: var(--color-ink);
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: var(--text-button, 14px);
   font-weight: 500;
-  line-height: 1.0;
-  padding: 11px 22px;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--color-hairline);
+  line-height: var(--leading-button, 1);
+  letter-spacing: var(--tracking-button, 0);
+  height: 40px;
+  padding: 9px 17px;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid var(--color-hairline-strong);
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
   max-width: 100%;
   box-shadow: var(--shadow-stripe-sm);
@@ -493,10 +612,10 @@ code, pre, .font-mono {
 
 .btn-secondary:hover {
   background-color: var(--color-canvas-soft);
-  border-color: var(--color-hairline-strong);
-  color: var(--color-primary-deep);
+  border-color: var(--color-muted);
+  color: var(--color-ink);
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(50, 50, 93, 0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
 .btn-secondary:active {
@@ -509,6 +628,48 @@ code, pre, .font-mono {
 
 .btn-secondary:hover svg {
   transform: translateX(2px);
+}
+
+/* Badge Pill per Expo Style Reference: 11px, 1.4, 0.88px, rounded.pill, 4px 10px */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: var(--text-caption-uppercase, 11px);
+  line-height: var(--leading-caption-uppercase, 1.4);
+  letter-spacing: var(--tracking-caption-uppercase, 0.88px);
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill, 9999px);
+  border: 1px solid var(--color-hairline-strong);
+  color: var(--color-ink);
+  background-color: transparent;
+  white-space: nowrap;
+}
+
+/* Feature Card & Workflow Step Card per Expo Style Reference */
+.feature-card,
+.card-feature {
+  background-color: var(--color-surface-card);
+  color: var(--color-ink);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg, 12px);
+  padding: var(--card-padding, 24px);
+  font-size: var(--text-title-md, 18px);
+  line-height: var(--leading-title-md, 1.4);
+}
+
+.workflow-step-card,
+.step-card {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg, 12px);
+  padding: 20px;
+  font-size: var(--text-body-md, 16px);
+  line-height: var(--leading-body-md, 1.5);
 }
 
 .btn-tertiary {
@@ -1779,6 +1940,34 @@ code, pre, .font-mono {
   border-radius: var(--radius-xl);
   padding: 56px 40px;
   text-align: center;
+}
+
+/* CTA Band per Expo Style Reference: display-lg, 96px 0 padding */
+.cta-band {
+  background-color: var(--color-surface-dark);
+  color: var(--color-on-dark);
+  padding: var(--spacing-section, 96px) 0;
+  text-align: center;
+}
+
+.cta-band h2,
+.cta-band .cta-title {
+  font-family: var(--font-display);
+  font-size: var(--text-display-lg, 36px);
+  line-height: var(--leading-display-lg, 1.15);
+  letter-spacing: var(--tracking-display-lg, -1.08px);
+  font-weight: 600;
+}
+
+/* Footer Light per Expo Style Reference: body-sm, 64px 48px padding */
+.footer-light {
+  background-color: var(--color-canvas);
+  color: var(--color-body);
+  border-top: 1px solid var(--color-hairline);
+  padding: 64px 48px;
+  font-size: var(--text-body-sm, 14px);
+  line-height: var(--leading-body-sm, 1.5);
+  letter-spacing: var(--tracking-body-sm, 0);
 }
 
 /* Tabbed Feature Showcase */

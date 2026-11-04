@@ -5,17 +5,17 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary-deep shadow-[0_4px_12px_rgba(83,58,253,0.25)] hover:shadow-[0_6px_16px_rgba(83,58,253,0.35)] hover:-translate-y-0.5 active:translate-y-0",
+        default: "bg-primary text-primary-foreground hover:bg-primary-deep shadow-[0_1px_2px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 active:translate-y-0",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-border bg-background hover:bg-muted hover:text-foreground hover:border-[#cad5e2] hover:-translate-y-0.5",
+          "border border-border bg-background hover:bg-muted hover:text-foreground hover:border-hairline-strong hover:-translate-y-0.5",
         secondary:
-          "bg-background text-primary border border-border hover:bg-muted hover:text-primary-deep hover:-translate-y-0.5 shadow-sm",
+          "bg-background text-foreground border border-border hover:bg-muted hover:border-hairline-strong hover:-translate-y-0.5 shadow-sm",
         ghost: "hover:bg-muted hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },

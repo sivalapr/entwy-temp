@@ -328,12 +328,12 @@ export default function Feature() {
         <div style={{ maxWidth: "680px", marginBottom: "48px" }}>
           <h2
             style={{
-              fontFamily: "var(--font-display, 'Inter', sans-serif)",
-              fontSize: "clamp(26px, 3vw, 36px)",
-              fontWeight: 300,
-              lineHeight: 1.15,
-              letterSpacing: "-0.64px",
-              color: "var(--color-ink, #0a2540)",
+              fontFamily: "var(--font-family-2, 'Inter', sans-serif)",
+              fontSize: "clamp(26px, 3vw, var(--text-display-lg, 36px))",
+              fontWeight: 600,
+              lineHeight: "var(--leading-display-lg, 1.15)",
+              letterSpacing: "var(--tracking-display-lg, -1.08px)",
+              color: "var(--color-ink, #171717)",
               marginBottom: "14px",
             }}
           >
@@ -341,11 +341,12 @@ export default function Feature() {
           </h2>
           <p
             style={{
-              fontFamily: "var(--font-body, 'Inter', sans-serif)",
-              fontSize: "clamp(16px, 1.4vw, 18px)",
-              fontWeight: 300,
-              lineHeight: 1.6,
-              color: "var(--color-body, #425466)",
+              fontFamily: "var(--font-family-2, 'Inter', sans-serif)",
+              fontSize: "var(--text-body-md, 16px)",
+              fontWeight: 400,
+              lineHeight: "var(--leading-body-md, 1.5)",
+              letterSpacing: "0",
+              color: "var(--color-body, #60646c)",
             }}
           >
             Every digital product and AI workflow we deliver is built with rigorous enterprise standards — clean architectures, automated guardrails, and complete code ownership.

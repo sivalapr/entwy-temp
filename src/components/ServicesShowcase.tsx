@@ -29,8 +29,8 @@ const featuredCapabilities = [
     title: 'Product Design & Engineering',
     description: 'From a rough brief to a production-ready application. We handle UX research, interaction design, frontend engineering, and cloud deployment — end to end.',
     path: '/solutions/build-a-new-product',
-    accent: '#533afd',
-    accentBg: '#ebebfd',
+    accent: '#000000',
+    accentBg: '#f0f0f3',
     icon: Palette,
     highlights: ['UX design & design systems', 'React / Next.js frontends', 'Production-grade CI/CD'],
   },
@@ -39,8 +39,8 @@ const featuredCapabilities = [
     title: 'AI Workflows & Intelligent Automation',
     description: 'Custom AI systems that handle real business processes: data extraction, document review, support triage, and decision support — not off-the-shelf wrappers.',
     path: '/solutions/build-an-ai-product',
-    accent: '#7952ff',
-    accentBg: '#ebebfd',
+    accent: '#4630EB',
+    accentBg: '#e8e0ff',
     icon: Bot,
     highlights: ['Purpose-built LLM pipelines', 'Document & data extraction', 'Workflow automation'],
   },
@@ -52,7 +52,7 @@ const standardCapabilities = [
     title: 'Cloud Architecture',
     description: 'Resilient, scalable backends designed for sustained growth: microservices, event-driven systems, and managed infrastructure.',
     path: '/services/technology',
-    accent: '#00d4ff',
+    accent: '#0d74ce',
     icon: Cloud,
   },
   {
@@ -60,7 +60,7 @@ const standardCapabilities = [
     title: 'Business System Integration',
     description: 'Bidirectional sync between ERPs, CRMs, and operational tools. Reduce manual re-entry and data inconsistency across your stack.',
     path: '/solutions/automate-business-workflows',
-    accent: '#ea2261',
+    accent: '#ab6400',
     icon: Workflow,
   },
   {
@@ -68,7 +68,7 @@ const standardCapabilities = [
     title: 'Platform Modernization',
     description: 'Move from legacy monolith to a cloud-native architecture without service disruption — incremental migration with validated cutover.',
     path: '/solutions/modernise-your-platform',
-    accent: '#00875a',
+    accent: '#16a34a',
     icon: RefreshCw,
   },
   {
@@ -76,7 +76,7 @@ const standardCapabilities = [
     title: 'Security & Compliance',
     description: 'Data governance, access control, and audit trails for regulated industries. Privacy-first engineering from architecture through deployment.',
     path: '/services/strategy',
-    accent: '#0a2540',
+    accent: '#171717',
     icon: ShieldCheck,
   },
 ];
@@ -105,12 +105,12 @@ export const ServicesShowcase: React.FC<ServicesShowcaseProps> = ({ onOpenProjec
           <h2
             id="capabilities-heading"
             style={{
-              fontFamily: "var(--font-display, 'Inter', sans-serif)",
-              fontSize: 'clamp(26px, 3vw, 36px)',
-              fontWeight: 300,
-              lineHeight: 1.12,
-              letterSpacing: '-0.64px',
-              color: 'var(--color-ink, #0a2540)',
+              fontFamily: "var(--font-family-2, 'Inter', sans-serif)",
+              fontSize: 'clamp(26px, 3.2vw, var(--text-display-lg, 36px))',
+              fontWeight: 600,
+              lineHeight: 'var(--leading-display-lg, 1.15)',
+              letterSpacing: 'var(--tracking-display-lg, -1.08px)',
+              color: 'var(--color-ink, #171717)',
               marginBottom: '14px',
             }}
           >
@@ -118,10 +118,11 @@ export const ServicesShowcase: React.FC<ServicesShowcaseProps> = ({ onOpenProjec
           </h2>
           <p
             style={{
-              fontSize: '16px',
-              fontWeight: 300,
-              lineHeight: 1.6,
-              color: 'var(--color-body, #425466)',
+              fontFamily: "var(--font-family-2, 'Inter', sans-serif)",
+              fontSize: 'var(--text-body-md, 16px)',
+              fontWeight: 400,
+              lineHeight: 'var(--leading-body-md, 1.5)',
+              color: 'var(--color-body, #60646c)',
             }}
           >
             Strategy, design, engineering, and AI — delivered as a cohesive team, not fragmented specialists.
@@ -156,13 +157,13 @@ export const ServicesShowcase: React.FC<ServicesShowcaseProps> = ({ onOpenProjec
                 onMouseEnter={e => {
                   const el = e.currentTarget;
                   el.style.boxShadow = 'var(--shadow-stripe-hover)';
-                  el.style.borderColor = 'rgba(83,58,253,0.3)';
+                  el.style.borderColor = 'var(--color-hairline-strong, #dcdee0)';
                   el.style.transform = 'translateY(-2px)';
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget;
                   el.style.boxShadow = 'var(--shadow-stripe-card)';
-                  el.style.borderColor = 'var(--color-hairline, #e3e8ee)';
+                  el.style.borderColor = 'var(--color-hairline, #f0f0f3)';
                   el.style.transform = '';
                 }}
               >
@@ -199,9 +200,9 @@ export const ServicesShowcase: React.FC<ServicesShowcaseProps> = ({ onOpenProjec
                 <p
                   style={{
                     fontSize: '15px',
-                    fontWeight: 300,
+                    fontWeight: 400,
                     lineHeight: 1.6,
-                    color: 'var(--color-body, #425466)',
+                    color: 'var(--color-body, #60646c)',
                     marginBottom: '24px',
                   }}
                 >
@@ -283,13 +284,13 @@ export const ServicesShowcase: React.FC<ServicesShowcaseProps> = ({ onOpenProjec
                 onMouseEnter={e => {
                   const el = e.currentTarget;
                   el.style.boxShadow = 'var(--shadow-stripe-card)';
-                  el.style.borderColor = 'rgba(83,58,253,0.25)';
+                  el.style.borderColor = 'var(--color-hairline-strong, #dcdee0)';
                   el.style.transform = 'translateY(-1px)';
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget;
                   el.style.boxShadow = 'var(--shadow-stripe-sm)';
-                  el.style.borderColor = 'var(--color-hairline, #e3e8ee)';
+                  el.style.borderColor = 'var(--color-hairline, #f0f0f3)';
                   el.style.transform = '';
                 }}
               >
@@ -326,9 +327,9 @@ export const ServicesShowcase: React.FC<ServicesShowcaseProps> = ({ onOpenProjec
                 <p
                   style={{
                     fontSize: '13.5px',
-                    fontWeight: 300,
+                    fontWeight: 400,
                     lineHeight: 1.55,
-                    color: 'var(--color-body, #425466)',
+                    color: 'var(--color-body, #60646c)',
                     marginBottom: '16px',
                     flexGrow: 1,
                   }}
@@ -357,7 +358,7 @@ export const ServicesShowcase: React.FC<ServicesShowcaseProps> = ({ onOpenProjec
           })}
         </div>
 
-        {/* Bottom CTA — text link, not a big button */}
+        {/* Bottom CTA */}
         <div style={{ marginTop: '40px', textAlign: 'center' }}>
           <Link
             to="/services"
@@ -365,22 +366,23 @@ export const ServicesShowcase: React.FC<ServicesShowcaseProps> = ({ onOpenProjec
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              fontSize: '15px',
-              fontWeight: 400,
-              color: 'var(--color-primary, #533afd)',
+              fontSize: '14px',
+              fontWeight: 500,
+              color: 'var(--color-ink, #171717)',
               textDecoration: 'none',
               padding: '10px 20px',
-              borderRadius: '9999px',
-              border: '1px solid rgba(83,58,253,0.3)',
+              borderRadius: 'var(--radius-sm, 6px)',
+              border: '1px solid var(--color-hairline-strong, #dcdee0)',
+              backgroundColor: 'var(--color-canvas, #ffffff)',
               transition: 'background-color 0.15s ease, border-color 0.15s ease',
             }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(83,58,253,0.04)';
-              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(83,58,253,0.5)';
+              (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--color-canvas-soft, #fafafa)';
+              (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-muted, #999999)';
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = '';
-              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(83,58,253,0.3)';
+              (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--color-canvas, #ffffff)';
+              (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-hairline-strong, #dcdee0)';
             }}
           >
             <span>See all capabilities</span>

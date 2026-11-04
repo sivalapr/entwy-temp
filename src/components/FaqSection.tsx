@@ -101,7 +101,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
               </button>
               {isOpen && (
                 <div style={{ padding: '0 24px 20px 24px', borderTop: '1px solid var(--color-canvas-soft)' }}>
-                  <p style={{ fontSize: 14.5, color: 'var(--color-body)', lineHeight: 1.6, margin: '16px 0 0', fontWeight: 300 }}>
+                  <p style={{ fontSize: 14.5, color: 'var(--color-body)', lineHeight: 1.6, margin: '16px 0 0', fontWeight: 400 }}>
                     {faq.a}
                   </p>
                 </div>

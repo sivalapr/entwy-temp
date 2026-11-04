@@ -183,10 +183,10 @@ export const InsightsPage: React.FC = () => {
             textAlign: 'center', 
           }}
         >
-          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: '14px', fontWeight: 300 }}>
+          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: '14px', fontWeight: 600 }}>
             Put these engineering paradigms to work
           </h2>
-          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: '640px', margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 300 }}>
+          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: '640px', margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 400 }}>
             Have a custom systems architecture or automation challenge? Book a technical scoping session with our lead architects.
           </p>
           <Link to="/start-a-project" className="btn-secondary-on-dark" style={{ padding: '13px 26px' }}>

@@ -338,7 +338,7 @@ export const ServicesPage: React.FC = () => {
                         <h3 style={{ fontSize: '16px', fontWeight: 600, color: 'var(--color-ink)', marginBottom: '8px' }}>
                           {item.name}
                         </h3>
-                        <p style={{ fontSize: '14px', color: 'var(--color-body)', lineHeight: 1.55, marginBottom: '20px', fontWeight: 300 }}>
+                        <p style={{ fontSize: '14px', color: 'var(--color-body)', lineHeight: 1.55, marginBottom: '20px', fontWeight: 400 }}>
                           {item.desc}
                         </p>
                       </div>
@@ -410,7 +410,7 @@ export const ServicesPage: React.FC = () => {
                   <div style={{ fontSize: '13.5px', color: 'var(--color-primary)', fontWeight: 500, marginBottom: '16px' }}>
                     {model.subtitle}
                   </div>
-                  <p style={{ fontSize: '14.5px', color: 'var(--color-body)', lineHeight: 1.6, marginBottom: '20px', fontWeight: 300 }}>
+                  <p style={{ fontSize: '14.5px', color: 'var(--color-body)', lineHeight: 1.6, marginBottom: '20px', fontWeight: 400 }}>
                     {model.desc}
                   </p>
 
@@ -501,7 +501,7 @@ export const ServicesPage: React.FC = () => {
                   <h3 style={{ fontSize: '16px', fontWeight: 600, color: 'var(--color-ink)', marginBottom: '8px' }}>
                     {g.title}
                   </h3>
-                  <p style={{ fontSize: '14px', color: 'var(--color-body)', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+                  <p style={{ fontSize: '14px', color: 'var(--color-body)', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
                     {g.desc}
                   </p>
                 </div>
@@ -632,7 +632,7 @@ export const ServicesPage: React.FC = () => {
                   </button>
                   {isOpen && (
                     <div style={{ padding: '0 24px 20px 24px', borderTop: '1px solid var(--color-canvas-soft)' }}>
-                      <p style={{ fontSize: '14.5px', color: 'var(--color-body)', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+                      <p style={{ fontSize: '14.5px', color: 'var(--color-body)', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
                         {faq.a}
                       </p>
                     </div>
@@ -652,10 +652,10 @@ export const ServicesPage: React.FC = () => {
             textAlign: 'center',
           }}
         >
-          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: '14px', fontWeight: 300 }}>
+          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: '14px', fontWeight: 600 }}>
             Ready to integrate custom intelligence?
           </h2>
-          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: '640px', margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 300 }}>
+          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: '640px', margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 400 }}>
             Our cross-functional strike team is ready to scope your architecture, audit your technical dependencies, and ship production software with enterprise SLAs.
           </p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>

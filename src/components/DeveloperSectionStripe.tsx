@@ -220,11 +220,11 @@ export const DeveloperSectionStripe: React.FC = () => {
           <h2
             id="dev-heading"
             style={{
-              fontFamily: "'Inter', -apple-system, sans-serif",
-              fontSize: 'clamp(28px, 3vw, 40px)',
-              fontWeight: 300,
-              lineHeight: 1.15,
-              letterSpacing: '-0.64px',
+              fontFamily: "var(--font-family-2, 'Inter', sans-serif)",
+              fontSize: 'clamp(28px, 3.2vw, var(--text-display-lg, 36px))',
+              fontWeight: 600,
+              lineHeight: 'var(--leading-display-lg, 1.15)',
+              letterSpacing: 'var(--tracking-display-lg, -1.08px)',
               color: '#ffffff',
               marginBottom: '20px',
             }}
@@ -234,9 +234,9 @@ export const DeveloperSectionStripe: React.FC = () => {
 
           <p
             style={{
-              fontSize: '17px',
-              fontWeight: 300,
-              lineHeight: 1.65,
+              fontSize: 'var(--text-body-md, 16px)',
+              fontWeight: 400,
+              lineHeight: 'var(--leading-body-md, 1.5)',
               color: '#a8c3de',
               marginBottom: '40px',
               maxWidth: '44ch',

@@ -32,10 +32,10 @@ export const HomePage: React.FC<HomePageProps> = () => {
         periodLabel="Sprint 01 → Production"
         imageUrl="/images/timeline/sprint-01-kickoff.webp"
         imageAlt="Collaborative sprint planning, sticky notes, team discussion, and project kickoff"
-        activeColor="#533afd"
-        backgroundColor="var(--color-canvas-soft, #f6f9fc)"
-        textColor="var(--color-ink, #0a2540)"
-        mutedTextColor="var(--color-body, #425466)"
+        activeColor="var(--color-expo-purple, #4630EB)"
+        backgroundColor="var(--color-canvas-soft, #fafafa)"
+        textColor="var(--color-ink, #171717)"
+        mutedTextColor="var(--color-body, #60646c)"
       />
       <InsightsEditorial />
       <CtaBandLight onOpenProjectModal={startProject} />

@@ -5,7 +5,7 @@ export default function FeatureMotion({ className }: { className?: string }) {
     <div className={`relative flex flex-col justify-between p-6 h-full min-h-[260px] ${className || ""}`}>
       <div className="flex items-center justify-between pb-3 border-b border-black/[0.06] dark:border-white/10">
         <span className="text-xs font-mono text-muted-foreground">Latency SLA: &lt; 120ms</span>
-        <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-violet-50 text-violet-600 dark:bg-violet-950 dark:text-violet-400 font-medium">
+        <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-[#f0f0f3] text-[#171717] dark:bg-neutral-800 dark:text-neutral-300 font-medium">
           Streaming 60fps
         </span>
       </div>
@@ -26,13 +26,13 @@ export default function FeatureMotion({ className }: { className?: string }) {
             strokeWidth="3"
             strokeLinecap="round"
           />
-          <circle cx="10" cy="90" r="5" fill="#533afd" />
-          <circle cx="270" cy="10" r="6" fill="#00d4ff" />
+          <circle cx="10" cy="90" r="5" fill="#000000" />
+          <circle cx="270" cy="10" r="6" fill="#0d74ce" />
           <defs>
             <linearGradient id="motion-gradient" x1="10" y1="90" x2="270" y2="10" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#533afd" />
-              <stop offset="0.5" stopColor="#7952ff" />
-              <stop offset="1" stopColor="#00d4ff" />
+              <stop stopColor="#000000" />
+              <stop offset="0.5" stopColor="#4630EB" />
+              <stop offset="1" stopColor="#0d74ce" />
             </linearGradient>
           </defs>
         </svg>

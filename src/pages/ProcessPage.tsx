@@ -140,9 +140,9 @@ export const ProcessPage: React.FC = () => {
                 style={{
                   padding: '7px 16px',
                   borderRadius: '9999px',
-                  border: isSelected ? '1px solid #533afd' : '1px solid var(--color-hairline, #e3e8ee)',
-                  backgroundColor: isSelected ? '#533afd' : '#ffffff',
-                  color: isSelected ? '#ffffff' : 'var(--color-ink, #0a2540)',
+                  border: isSelected ? '1px solid var(--color-primary, #000000)' : '1px solid var(--color-hairline, #f0f0f3)',
+                  backgroundColor: isSelected ? 'var(--color-primary, #000000)' : '#ffffff',
+                  color: isSelected ? '#ffffff' : 'var(--color-ink, #171717)',
                   textDecoration: 'none',
                   fontSize: '13.5px',
                   fontFamily: "var(--font-body, 'Inter', sans-serif)",
@@ -186,7 +186,7 @@ export const ProcessPage: React.FC = () => {
                           fontFamily: "var(--font-display, 'Inter', sans-serif)",
                           fontSize: '24px',
                           fontWeight: 700,
-                          color: 'var(--color-primary, #533afd)',
+                          color: 'var(--color-primary, #000000)',
                           lineHeight: 1,
                         }}
                       >
@@ -277,10 +277,10 @@ export const ProcessPage: React.FC = () => {
 
         {/* Bottom CTA */}
         <div className="cta-wave-banner" style={{ marginTop: '72px', padding: '52px', textAlign: 'center' }}>
-          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: 12, fontWeight: 300 }}>
+          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: 12, fontWeight: 600 }}>
             Experience our velocity first-hand
           </h2>
-          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: 600, margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 300 }}>
+          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: 600, margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 400 }}>
             Schedule an initial 30-minute discovery call with our engineering partners to review your product roadmap and architectural targets.
           </p>
           <Link to="/start-a-project" className="btn-secondary-on-dark" style={{ display: 'inline-flex', padding: '12px 24px' }}>

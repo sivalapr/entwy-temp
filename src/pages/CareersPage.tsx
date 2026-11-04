@@ -271,7 +271,7 @@ export const CareersPage: React.FC = () => {
               {life.title}
             </h2>
           </div>
-          <p style={{ fontSize: '16px', color: 'var(--color-body)', lineHeight: 1.6, maxWidth: '820px', marginBottom: '28px', fontWeight: 300 }}>
+          <p style={{ fontSize: '16px', color: 'var(--color-body)', lineHeight: 1.6, maxWidth: '820px', marginBottom: '28px', fontWeight: 400 }}>
             {life.desc} We believe in small, autonomous strike teams with high individual agency. You will work on real production software, collaborate directly with founders and senior enterprise partners, and enjoy deep, uninterrupted focus time.
           </p>
 
@@ -286,7 +286,7 @@ export const CareersPage: React.FC = () => {
                     </div>
                     <span style={{ fontSize: '15px', fontWeight: 600, color: 'var(--color-ink)' }}>{b.title}</span>
                   </div>
-                  <p style={{ fontSize: '13.5px', color: 'var(--color-body)', lineHeight: 1.55, margin: 0, fontWeight: 300 }}>
+                  <p style={{ fontSize: '13.5px', color: 'var(--color-body)', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
                     {b.desc}
                   </p>
                 </div>
@@ -314,7 +314,7 @@ export const CareersPage: React.FC = () => {
               <h2 className="title-lg" style={{ color: 'var(--color-ink)', marginBottom: '4px' }}>
                 Department-wise Internship Opportunities
               </h2>
-              <p style={{ fontSize: '15px', color: 'var(--color-body)', fontWeight: 300, margin: 0 }}>
+              <p style={{ fontSize: '15px', color: 'var(--color-body)', fontWeight: 400, margin: 0 }}>
                 Chennai, Tamil Nadu · Full-Time / Structured Internships with PPO Potential
               </p>
             </div>
@@ -610,7 +610,7 @@ export const CareersPage: React.FC = () => {
             <h3 className="title-md" style={{ color: 'var(--color-ink)', marginBottom: '12px' }}>
               {internships.title}
             </h3>
-            <p style={{ fontSize: '14.5px', color: 'var(--color-body)', lineHeight: 1.6, marginBottom: '24px', fontWeight: 300 }}>
+            <p style={{ fontSize: '14.5px', color: 'var(--color-body)', lineHeight: 1.6, marginBottom: '24px', fontWeight: 400 }}>
               {internships.desc} Every intern is paired with senior technical mentors and specialists in our Chennai studio, contributing directly to real client platforms, generative AI tooling, and operational frameworks.
             </p>
             <button
@@ -640,7 +640,7 @@ export const CareersPage: React.FC = () => {
             <h3 className="title-md" style={{ color: 'var(--color-ink)', marginBottom: '12px' }}>
               {hiring.title}
             </h3>
-            <p style={{ fontSize: '14.5px', color: 'var(--color-body)', lineHeight: 1.6, marginBottom: '20px', fontWeight: 300 }}>
+            <p style={{ fontSize: '14.5px', color: 'var(--color-body)', lineHeight: 1.6, marginBottom: '20px', fontWeight: 400 }}>
               {hiring.desc}
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -678,7 +678,7 @@ export const CareersPage: React.FC = () => {
                 <div style={{ fontSize: '15px', fontWeight: 600, color: 'var(--color-ink)', marginBottom: '8px' }}>
                   {faq.q}
                 </div>
-                <p style={{ fontSize: '13.5px', color: 'var(--color-body)', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+                <p style={{ fontSize: '13.5px', color: 'var(--color-body)', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
                   {faq.a}
                 </p>
               </div>
@@ -695,10 +695,10 @@ export const CareersPage: React.FC = () => {
             textAlign: 'center', 
           }}
         >
-          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: '14px', fontWeight: 300 }}>
+          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: '14px', fontWeight: 600 }}>
             Don't see a role that matches your profile?
           </h2>
-          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: '640px', margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 300 }}>
+          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: '640px', margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 400 }}>
             We always welcome motivated students, graduates, and builders across engineering, AI, design, marketing, and operations. Send us your profile and let's explore together.
           </p>
           <button

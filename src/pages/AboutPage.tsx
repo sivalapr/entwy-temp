@@ -257,7 +257,7 @@ export const AboutPage: React.FC = () => {
 
             <div style={{ maxWidth: '840px', marginBottom: '32px' }}>
               {detailedSectionContent[resolvedId].paragraphs.map((p, idx) => (
-                <p key={idx} style={{ fontSize: '16px', color: 'var(--color-body)', lineHeight: 1.7, marginBottom: '16px', fontWeight: 300 }}>
+                <p key={idx} style={{ fontSize: '16px', color: 'var(--color-body)', lineHeight: 1.7, marginBottom: '16px', fontWeight: 400 }}>
                   {p}
                 </p>
               ))}
@@ -269,7 +269,7 @@ export const AboutPage: React.FC = () => {
                   <div style={{ fontSize: '15px', fontWeight: 600, color: 'var(--color-ink)', marginBottom: '6px' }}>
                     {h.title}
                   </div>
-                  <p style={{ fontSize: '13.5px', color: 'var(--color-body)', lineHeight: 1.55, margin: 0, fontWeight: 300 }}>
+                  <p style={{ fontSize: '13.5px', color: 'var(--color-body)', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
                     {h.desc}
                   </p>
                 </div>
@@ -312,7 +312,7 @@ export const AboutPage: React.FC = () => {
                     {sec.title}
                   </h2>
 
-                  <p style={{ fontSize: '15px', color: 'var(--color-body)', lineHeight: 1.6, marginBottom: '24px', fontWeight: 300 }}>
+                  <p style={{ fontSize: '15px', color: 'var(--color-body)', lineHeight: 1.6, marginBottom: '24px', fontWeight: 400 }}>
                     {sec.desc}
                   </p>
                 </div>
@@ -374,7 +374,7 @@ export const AboutPage: React.FC = () => {
                   <h3 style={{ fontSize: '16px', fontWeight: 600, color: 'var(--color-ink)', marginBottom: '8px' }}>
                     {op.title}
                   </h3>
-                  <p style={{ fontSize: '13.5px', color: 'var(--color-body)', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+                  <p style={{ fontSize: '13.5px', color: 'var(--color-body)', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
                     {op.desc}
                   </p>
                 </div>
@@ -391,7 +391,7 @@ export const AboutPage: React.FC = () => {
               Global Operations &amp; Delivery Presence
             </h2>
           </div>
-          <p style={{ fontSize: '15px', color: 'var(--color-body)', maxWidth: '780px', lineHeight: 1.6, marginBottom: '28px', fontWeight: 300 }}>
+          <p style={{ fontSize: '15px', color: 'var(--color-body)', maxWidth: '780px', lineHeight: 1.6, marginBottom: '28px', fontWeight: 400 }}>
             Our dual-hub operational presence enables continuous product delivery across North America, Europe, and Asia Pacific timezones.
           </p>
 
@@ -403,7 +403,7 @@ export const AboutPage: React.FC = () => {
               <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--color-ink)', marginBottom: 8 }}>
                 Brooklyn, New York
               </h3>
-              <p style={{ fontSize: '14px', color: 'var(--color-body)', lineHeight: 1.6, margin: '0 0 16px 0', fontWeight: 300 }}>
+              <p style={{ fontSize: '14px', color: 'var(--color-body)', lineHeight: 1.6, margin: '0 0 16px 0', fontWeight: 400 }}>
                 Executive product strategy, design systems craft, and enterprise partner collaboration for our US and European clients.
               </p>
               <div style={{ fontSize: '12.5px', color: 'var(--color-muted)', fontFamily: 'var(--font-mono)' }}>
@@ -418,7 +418,7 @@ export const AboutPage: React.FC = () => {
               <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--color-ink)', marginBottom: 8 }}>
                 Chennai, Tamil Nadu
               </h3>
-              <p style={{ fontSize: '14px', color: 'var(--color-body)', lineHeight: 1.6, margin: '0 0 16px 0', fontWeight: 300 }}>
+              <p style={{ fontSize: '14px', color: 'var(--color-body)', lineHeight: 1.6, margin: '0 0 16px 0', fontWeight: 400 }}>
                 High-throughput distributed systems engineering, autonomous agent deployment, and round-the-clock infrastructure operations.
               </p>
               <div style={{ fontSize: '12.5px', color: 'var(--color-muted)', fontFamily: 'var(--font-mono)' }}>
@@ -437,10 +437,10 @@ export const AboutPage: React.FC = () => {
             textAlign: 'center', 
           }}
         >
-          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: '14px', fontWeight: 300 }}>
+          <h2 className="display-md" style={{ color: '#ffffff', marginBottom: '14px', fontWeight: 600 }}>
             Collaborate directly with our builders.
           </h2>
-          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: '640px', margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 300 }}>
+          <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: '640px', margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 400 }}>
             Whether you need a full platform build, AI systems architecture, or strategic advisory, our strike team is ready to scope your engagement.
           </p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>

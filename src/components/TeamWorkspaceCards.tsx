@@ -3,10 +3,10 @@ import { ArrowRight, BarChart3, Headphones, Megaphone, Settings2 } from 'lucide-
 import { Link } from 'react-router-dom';
 
 const teams = [
-  { name: 'Operations', icon: Settings2, task: 'Route exceptions, approvals, and SLA escalations', accent: '#533afd' },
-  { name: 'Revenue', icon: BarChart3, task: 'Enrich enterprise accounts and sync bi-directional ERPs', accent: '#00d4ff' },
-  { name: 'Customer', icon: Headphones, task: 'Triage priority tickets with live telemetry context', accent: '#7952ff' },
-  { name: 'Marketing', icon: Megaphone, task: 'Coordinate multi-channel campaigns and analytics attribution', accent: '#ea2261' },
+  { name: 'Operations', icon: Settings2, task: 'Route exceptions, approvals, and SLA escalations', accent: '#000000' },
+  { name: 'Revenue', icon: BarChart3, task: 'Enrich enterprise accounts and sync bi-directional ERPs', accent: '#0d74ce' },
+  { name: 'Customer', icon: Headphones, task: 'Triage priority tickets with live telemetry context', accent: '#4630EB' },
+  { name: 'Marketing', icon: Megaphone, task: 'Coordinate multi-channel campaigns and analytics attribution', accent: '#ab6400' },
 ];
 
 export function TeamWorkspaceCards() {

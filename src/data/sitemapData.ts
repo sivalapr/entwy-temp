@@ -136,7 +136,7 @@ export const caseStudiesData: CaseStudy[] = [
     impact: '94% decrease in transaction verification latency, 10M+ automated reconciliations monthly.',
     overview: 'Implemented an event-driven workflow engine that connects transaction streams to real-time risk checks, triggering instant alerts in Slack and automated audit logs in Snowflake.',
     stack: ['React', 'TypeScript', 'Autonomous Agents', 'PostgreSQL', 'Stripe Connect'],
-    thumbnailGradient: 'linear-gradient(135deg, #0a2540 0%, #533afd 100%)',
+    thumbnailGradient: 'linear-gradient(135deg, #171717 0%, #4630EB 100%)',
   },
   {
     id: 'case-study-02',

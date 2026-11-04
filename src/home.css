@@ -1,20 +1,21 @@
 /* ==========================================================================
-   HOMEPAGE (STRIPE DESIGN SYSTEM SPECIFICATION)
-   Signature electric indigo (#533afd), deep navy ink (#0d253d),
-   crisp white cards on soft canvas (#f6f9fc), hairline borders (#e3e8ee).
+   HOMEPAGE (EXPO BRAND DESIGN SYSTEM SPECIFICATION)
+   Pure black primary (#000000), signature Expo purple (#4630EB),
+   near-black ink (#171717), crisp white cards on soft canvas (#fafafa),
+   hairline borders (#f0f0f3).
    ========================================================================== */
 
 .home-page {
-  --home-accent-ink: #0d253d;
-  --home-accent-surface: #ebebfd;
-  --color-muted: #64748d;
+  --home-accent-ink: #171717;
+  --home-accent-surface: #f0f0f3;
+  --color-muted: #999999;
 }
 
 .home-page h1, .home-page h2, .home-page h3 { text-wrap: balance; }
 .home-page h1, .home-page section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
-.home-page .display-lg { font-size: clamp(28px, 3.6vw, 40px); font-weight: 300; line-height: 1.15; letter-spacing: -0.025em; color: var(--color-ink); }
-.home-page .section-pad { padding-block: 80px; }
-.home-page .body-lg { font-size: 16px; font-weight: 300; line-height: 1.6; max-width: 65ch; color: var(--color-body); }
+.home-page .display-lg { font-family: var(--font-family-2); font-size: var(--text-display-lg, 36px); font-weight: 600; line-height: var(--leading-display-lg, 1.15); letter-spacing: var(--tracking-display-lg, -1.08px); color: var(--color-ink); }
+.home-page .section-pad { padding-block: var(--spacing-section, 96px); }
+.home-page .body-lg { font-family: var(--font-family-2); font-size: var(--text-body-md, 16px); font-weight: 400; line-height: var(--leading-body-md, 1.5); letter-spacing: var(--tracking-body-md, 0); max-width: 65ch; color: var(--color-body); }
 .home-page :is(button, a, [tabindex]):focus-visible { outline: 3px solid rgba(83, 58, 253, 0.45); outline-offset: 4px; }
 .home-page :is(button, a) { touch-action: manipulation; }
 
@@ -27,8 +28,8 @@
 
 .home-hero { padding-top: calc(var(--nav-height) + 72px); }
 .home-hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-.home-hero-copy h1 { font-family: var(--font-display); font-size: clamp(40px, 4.8vw, 64px); font-weight: 300; line-height: 1.06; letter-spacing: -.035em; max-width: 10em; color: var(--color-ink); }
-.home-hero-copy > p { font-size: 17px; font-weight: 300; line-height: 1.65; max-width: 48ch; color: var(--color-body); margin-top: 24px; }
+.home-hero-copy h1 { font-family: var(--font-primary); font-size: clamp(40px, 4.8vw, var(--text-display-mega, 64px)); font-weight: 600; line-height: var(--leading-display-mega, 1.05); letter-spacing: var(--tracking-display-mega, -1.92px); max-width: 12em; color: var(--color-ink); }
+.home-hero-copy > p { font-family: var(--font-family-2); font-size: var(--text-body-md, 16px); font-weight: 400; line-height: var(--leading-body-md, 1.5); max-width: 52ch; color: var(--color-body); margin-top: 24px; }
 .home-hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 32px; }
 .home-text-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--color-primary); padding-block: 10px; }
 .home-text-link:hover { color: var(--color-primary-deep); text-decoration: underline; text-underline-offset: 4px; }
@@ -225,13 +226,13 @@
   gap: 48px;
   padding: 56px;
   border-radius: var(--radius-2xl);
-  background-color: #0a2540;
+  background-color: var(--color-surface-dark, #171717);
   background-image: url('/images/blue-wave-bg.png');
   background-size: cover;
   background-position: center;
   border: 1px solid rgba(255, 255, 255, 0.22);
   color: #ffffff;
-  box-shadow: 0 20px 48px -12px rgba(10, 37, 64, 0.35);
+  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.45);
 }
 .home-contact::before {
   content: '';
@@ -246,8 +247,8 @@
   z-index: 2;
 }
 .home-contact > div { max-width: 680px; }
-.home-contact p { margin-top: 16px; color: #cad5e2; font-size: 16px; line-height: 1.6; }
-.home-contact h2 { color: #ffffff; font-weight: 300; letter-spacing: -0.025em; }
+.home-contact p { margin-top: 16px; color: #cad5e2; font-size: var(--text-body-md, 16px); line-height: 1.5; font-weight: 400; }
+.home-contact h2 { color: #ffffff; font-weight: 600; font-size: var(--text-display-lg, 36px); line-height: var(--leading-display-lg, 1.15); letter-spacing: var(--tracking-display-lg, -1.08px); }
 .home-contact > a { flex: none; }
 
 @media (max-width: 1100px) {

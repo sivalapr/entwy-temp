@@ -122,11 +122,11 @@ export function ExpandableFeaturePanel() {
           >
             <div className="visual-window-bar" style={{ padding: '12px 16px', background: '#ffffff', borderBottom: '1px solid var(--color-hairline)' }}>
               <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-                <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#ea2261', display: 'inline-block' }} />
-                <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#f5a623', display: 'inline-block' }} />
-                <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#00d924', display: 'inline-block' }} />
+                <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#eb8e90', display: 'inline-block' }} />
+                <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#ab6400', display: 'inline-block' }} />
+                <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#16a34a', display: 'inline-block' }} />
               </div>
-              <b style={{ marginLeft: 12, fontSize: '13px', fontWeight: 600, color: '#0d253d' }}>
+              <b style={{ marginLeft: 12, fontSize: '13px', fontWeight: 600, color: 'var(--color-ink, #171717)' }}>
                 Live Workflow Execution
               </b>
             </div>
@@ -147,7 +147,7 @@ export function ExpandableFeaturePanel() {
                     padding: '12px 14px',
                     borderRadius: 'var(--radius-md)',
                     backgroundColor: index === 3 ? 'var(--color-primary-bg-subdued)' : 'var(--color-canvas-soft)',
-                    border: index === 3 ? '1px solid rgba(83, 58, 253, 0.25)' : '1px solid var(--color-hairline)',
+                    border: index === 3 ? '1px solid rgba(0, 0, 0, 0.15)' : '1px solid var(--color-hairline)',
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -170,7 +170,7 @@ export function ExpandableFeaturePanel() {
                       </div>
                     </div>
                   </div>
-                  <CheckCircle2 size={16} color={index === 3 ? '#533afd' : '#00d924'} />
+                  <CheckCircle2 size={16} color={index === 3 ? '#000000' : '#16a34a'} />
                 </div>
               ))}
             </div>

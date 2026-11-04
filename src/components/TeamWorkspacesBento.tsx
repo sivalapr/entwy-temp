@@ -19,7 +19,7 @@ const workspaceData = [
     id: 'operations',
     name: 'Operations & IT',
     icon: Settings2,
-    accent: '#533afd',
+    accent: '#000000',
     headline: 'Exception routing & approval orchestration.',
     description: 'Intercept process exceptions, validate policy requirements, and route approvals directly into Slack or your enterprise portal.',
     impactMetric: '84% less manual routing',
@@ -106,8 +106,8 @@ export const TeamWorkspacesBento: React.FC = () => {
                 onClick={() => setActiveTab(index)}
                 className={`p-4 rounded-xl text-left transition-all duration-200 border flex items-center gap-3 ${
                   isActive 
-                    ? 'bg-white border-[#533afd] shadow-sm ring-1 ring-[#533afd]' 
-                    : 'bg-white/80 border-[#e3e8ee] hover:border-[#533afd]/50 hover:bg-white'
+                    ? 'bg-white border-[#171717] shadow-sm ring-1 ring-[#171717]' 
+                    : 'bg-white/80 border-[var(--color-hairline,#f0f0f3)] hover:border-[var(--color-hairline-strong,#dcdee0)] hover:bg-white'
                 }`}
               >
                 <div 
@@ -117,8 +117,8 @@ export const TeamWorkspacesBento: React.FC = () => {
                   <Icon size={18} />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-[#0d253d]">{team.name}</div>
-                  <div className="text-[11px] text-[#64748d] font-medium">{team.impactMetric}</div>
+                  <div className="text-sm font-semibold text-[var(--color-ink,#171717)]">{team.name}</div>
+                  <div className="text-[11px] text-[var(--color-muted,#999999)] font-medium">{team.impactMetric}</div>
                 </div>
               </button>
             );
@@ -128,39 +128,39 @@ export const TeamWorkspacesBento: React.FC = () => {
         {/* Interactive Workspace Card Detail */}
         <GlowCard 
           variant="light" 
-          className="p-6 sm:p-10 border-[#e3e8ee] bg-white shadow-sm"
-          glowColors={[current.accent, '#533afd']}
+          className="p-6 sm:p-10 border-[var(--color-hairline,#f0f0f3)] bg-white shadow-sm"
+          glowColors={[current.accent, '#4630EB']}
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left info column */}
             <div className="lg:col-span-5">
-              <h3 className="text-2xl sm:text-3xl font-light text-[#0d253d] font-display mb-3">
+              <h3 className="text-2xl sm:text-3xl font-light text-[var(--color-ink,#171717)] font-display mb-3">
                 {current.headline}
               </h3>
-              <p className="text-sm sm:text-base text-[#425466] leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-[var(--color-body,#60646c)] leading-relaxed mb-6">
                 {current.description}
               </p>
 
-              <div className="flex items-center gap-4 pt-4 border-t border-[#e3e8ee]">
+              <div className="flex items-center gap-4 pt-4 border-t border-[var(--color-hairline,#f0f0f3)]">
                 <div>
                   <div className="text-2xl font-bold font-display" style={{ color: current.accent }}>
                     {current.impactMetric}
                   </div>
-                  <div className="text-xs text-[#64748d]">Measured Team Outcome</div>
+                  <div className="text-xs text-[var(--color-muted,#999999)]">Measured Team Outcome</div>
                 </div>
-                <div className="h-8 w-px bg-[#e3e8ee]" />
+                <div className="h-8 w-px bg-[var(--color-hairline,#f0f0f3)]" />
                 <div>
-                  <div className="text-2xl font-bold font-display text-[#0d253d]">
+                  <div className="text-2xl font-bold font-display text-[var(--color-ink,#171717)]">
                     100%
                   </div>
-                  <div className="text-xs text-[#64748d]">Audit Trail Recorded</div>
+                  <div className="text-xs text-[var(--color-muted,#999999)]">Audit Trail Recorded</div>
                 </div>
               </div>
 
               <div className="mt-8">
                 <Link 
                   to="/solutions/automate-business-workflows"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#533afd] hover:text-[#4434d4] transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-text-link,#0d74ce)] hover:text-[#000000] transition-colors"
                 >
                   <span>Explore {current.name} solutions</span>
                   <ArrowRight size={15} />
