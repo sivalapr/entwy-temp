@@ -1,181 +1,101 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { careersSectionsData } from '../data/sitemapData';
+import { detailedJobOpenings, CAREER_DEPARTMENTS, JobOpening } from '../data/careersData';
 import { CareersEditorialHero } from '../components/CareersEditorialHero';
 import { CareerApplyModal } from '../components/CareerApplyModal';
 import { 
   ArrowRight, 
   Briefcase, 
-  CheckCircle2, 
   GraduationCap, 
   HeartHandshake, 
   Sparkles, 
   UserCheck, 
-  Users, 
-  Zap,
   ChevronRight,
   Laptop,
   BookOpen,
   DollarSign,
-  Coffee,
   Plane,
-  ShieldCheck,
-  ChevronDown
+  MapPin,
+  Search,
+  X,
+  CheckCircle,
+  Building,
+  Tag,
+  Layers,
+  Award
 } from 'lucide-react';
-
-const detailedJobOpenings = [
-  {
-    title: 'Staff AI / LLM Systems Engineer',
-    department: 'ENGINEERING',
-    location: 'Remote / Brooklyn, NY',
-    type: 'Full-time',
-    comp: '$190k – $240k · 0.25% – 0.5% Equity',
-    summary: 'Lead the architecture and production deployment of multi-agent cognitive platforms, vector databases, and Model Context Protocol (MCP) servers for enterprise clients.',
-    responsibilities: [
-      'Architect deterministic validation layers and rollback brokers for probabilistic LLM tool calls',
-      'Design hybrid vector retrieval pipelines combining BM25 keyword scoring with dense embeddings and knowledge graphs',
-      'Benchmark model latency, token cost efficiency, and hallucination rates across Claude 3.5 Sonnet and GPT-4o',
-      'Publish internal and open-source RFCs on agentic orchestration patterns'
-    ],
-    requirements: [
-      '6+ years of production software engineering experience in Python or TypeScript/Node.js',
-      'Demonstrated experience shipping LLM/RAG systems to real enterprise users',
-      'Deep understanding of embedding spaces, vector indices (Qdrant, Pinecone, pgvector), and token streaming',
-      'Strong distributed systems fundamentals and event-driven architecture experience'
-    ],
-    stack: ['LangGraph', 'Python FastAPI', 'TypeScript', 'Qdrant', 'Claude 3.5 Sonnet', 'OpenTelemetry']
-  },
-  {
-    title: 'Senior Full-Stack Engineer (React / Node / Go)',
-    department: 'ENGINEERING',
-    location: 'Remote / Chennai, India',
-    type: 'Full-time',
-    comp: 'Competitive Market · Performance Bonus · Remote',
-    summary: 'Build high-performance web applications and resilient API gateways engineered for sub-second P99 latency and high concurrency.',
-    responsibilities: [
-      'Implement reactive, accessible user interfaces using React, Next.js, and strictly typed component systems',
-      'Develop distributed microservices, webhook brokers, and relational PostgreSQL schemas with automated migrations',
-      'Hardened CI/CD deployment pipelines on AWS and Vercel with ephemeral preview environments',
-      'Partner directly with design leadership to turn Figma design tokens into production-ready UI libraries'
-    ],
-    requirements: [
-      '5+ years building full-stack cloud applications in production environments',
-      'Advanced proficiency in TypeScript, React, and either Node.js or Go',
-      'Strong relational database design (PostgreSQL) and caching strategies (Redis)',
-      'Experience with webhook delivery mechanisms, idempotency keys, and queue brokers'
-    ],
-    stack: ['React', 'Next.js', 'TypeScript', 'Node.js', 'Go', 'PostgreSQL', 'Tailwind CSS', 'Docker']
-  },
-  {
-    title: 'Lead Product Designer (Design Systems)',
-    department: 'PRODUCT',
-    location: 'Remote / Brooklyn, NY',
-    type: 'Full-time',
-    comp: '$160k – $210k · Equity & Health Coverage',
-    summary: 'Own the visual and interaction craft of ENTWY’s platforms, creating Zapier-grade micro-interactions, dark mode aesthetics, and robust design token libraries.',
-    responsibilities: [
-      'Establish comprehensive Figma component libraries and token architectures shared directly with frontend engineers',
-      'Design complex data visualization dashboards, agent status monitors, and multi-step workflow builders',
-      'Conduct user testing sessions to uncover cognitive friction in automated enterprise operations',
-      'Produce interactive prototypes in Figma and code (React/Tailwind) to validate mental models fast'
-    ],
-    requirements: [
-      '5+ years experience designing complex B2B SaaS, developer tools, or financial interfaces',
-      'Exceptional visual craft, typography discipline, and micro-interaction animation sensitivity',
-      'Fluency with modern web constraints (CSS Grid, Flexbox, Radix UI primitives, design tokens)',
-      'Portfolio showcasing deep systems thinking and shipping high-polish production interfaces'
-    ],
-    stack: ['Figma', 'Design Tokens', 'Radix UI', 'CSS/Tailwind', 'Prototyping', 'Linear']
-  },
-  {
-    title: 'Solutions Architect (Enterprise Automations)',
-    department: 'SALES',
-    location: 'New York / Hybrid / Remote',
-    type: 'Full-time',
-    comp: '$180k – $230k · Performance Upside',
-    summary: 'Interface directly with enterprise CTOs and engineering heads to map legacy operating workflows into modern API-driven architectures.',
-    responsibilities: [
-      'Lead technical discovery sessions to audit legacy ERP, CRM, and cloud database bottlenecks',
-      'Author architectural blueprints, entity-relationship diagrams, and integration specifications',
-      'Guide embedded strike teams through technical implementation milestones and security sign-offs',
-      'Represent ENTWY technical leadership in executive architecture reviews'
-    ],
-    requirements: [
-      '7+ years experience in software architecture, technical consulting, or solutions engineering',
-      'Deep background in enterprise integrations (REST, GraphQL, gRPC, webhooks, Kafka)',
-      'Familiarity with enterprise compliance frameworks (SOC 2, HIPAA, PCI-DSS)',
-      'Outstanding communication skills with the ability to articulate trade-offs to both engineers and executives'
-    ],
-    stack: ['System Design', 'Enterprise APIs', 'Kafka', 'GraphQL', 'AWS / Cloud Architecture', 'SOC-2']
-  }
-];
 
 const comprehensiveBenefits = [
   {
     icon: Laptop,
-    title: 'Top-Tier Workstation Gear',
-    desc: 'Every team member receives a maxed-out Apple Silicon MacBook Pro (M3 Max / 64GB+), 4K external display, and a dedicated home office setup stipend.',
+    title: 'Modern Engineering Workstation',
+    desc: 'High-performance machines, access to cloud computing clusters, AI developer tools, and modern productivity tooling from day one.',
   },
   {
     icon: DollarSign,
-    title: 'Top-of-Market Comp & Upside',
-    desc: 'Transparent, top-tier base compensation with annual profit-sharing bonuses and equity ownership options for every full-time employee.',
+    title: 'Competitive Internship Stipend',
+    desc: 'Structured monthly remuneration and completion performance incentives for every selected intern in Chennai.',
   },
   {
-    icon: HeartHandshake,
-    title: 'Premium Healthcare & Wellness',
-    desc: 'Comprehensive medical, dental, and vision insurance with 100% premium coverage for you and generous family dependent subsidies.',
+    icon: Award,
+    title: 'PPO & Full-Time Conversion',
+    desc: 'High-performing interns are actively considered for pre-placement offers (PPOs) and full-time associate engineer/designer/specialist roles.',
   },
   {
-    icon: Zap,
-    title: 'Async-First Deep Focus',
-    desc: 'No endless calendar-filling status meetings. We operate through written RFCs, pull requests, and autonomous deep work blocks.',
+    icon: Layers,
+    title: 'Live Production Software',
+    desc: 'Work on real production codebases, AI agent systems, SaaS platforms, and enterprise digital solutions—no dummy demo tasks.',
   },
   {
     icon: BookOpen,
-    title: '$3,000 Annual Learning Budget',
-    desc: 'Dedicated annual stipend for conferences, books, online courses, specialized AI compute credits, and technical subscriptions.',
+    title: '1-on-1 Senior Mentorship',
+    desc: 'Paired directly with lead architects, principal designers, and department leads for weekly design reviews and code audits.',
   },
   {
-    icon: Plane,
-    title: 'Bi-Annual International Offsites',
-    desc: 'We bring our global team together twice a year in inspiring locations (past offsites in Lisbon, Tokyo, and New York) to brainstorm and connect.',
+    icon: HeartHandshake,
+    title: 'Collaborative Studio Culture',
+    desc: 'Vibrant, high-agency team environment at our Chennai office with hackathons, team lunches, and cross-functional learning.',
   },
 ];
 
 const hiringSteps = [
   {
     step: 'Stage 01',
-    name: 'Introductory Conversation',
+    name: 'Application & Portfolio Review',
     timeline: 'Day 1–3',
-    desc: 'A candid 30-minute conversation with a founder or senior engineer about your past work, engineering values, and what kind of problems energize you.',
+    desc: 'Our department leads review your academic profile, GitHub repositories, Figma portfolios, or writing samples against role requirements.',
   },
   {
     step: 'Stage 02',
-    name: 'Collaborative Pairing Session',
+    name: 'Practical Skill Discussion & Assignment',
     timeline: 'Day 4–6',
-    desc: 'No trivia or live LeetCode puzzles. We work together on a practical, real-world engineering challenge or audit a live piece of software together.',
+    desc: 'A hands-on, collaborative conversation or practical take-home task evaluating your problem-solving ability, fundamentals, and curiosity.',
   },
   {
     step: 'Stage 03',
-    name: 'Team Meet & Final Decision',
+    name: 'Team Sync & Internship Offer',
     timeline: 'Within 48 Hours',
-    desc: 'A brief cultural sync with your prospective teammates followed by a transparent, competitive offer delivered within 48 hours of pairing.',
+    desc: 'A brief cultural alignment sync followed by an official internship offer letter, onboarding roadmap, and mentorship schedule.',
   },
 ];
 
 const candidateFaqs = [
   {
-    q: 'Do you offer fully remote work?',
-    a: 'Yes. All of our engineering and design roles are remote-friendly. We hire across the Americas, Europe, and Asia Pacific, with physical studio hubs in Brooklyn, NY and Chennai, India for those who prefer an office.',
+    q: 'Where is the internship located?',
+    a: 'All 36 internship opportunities are based in Chennai, Tamil Nadu. Interns collaborate closely with our engineering, design, AI, and growth teams at our Chennai studio.',
   },
   {
-    q: 'What is your interview preparation recommendation?',
-    a: 'Do not spend weeks memorizing algorithmic trivia. We care about how you reason through systems architecture, how you write clean maintainable code, and how you communicate technical trade-offs.',
+    q: 'Who is eligible to apply for these internships?',
+    a: 'We welcome students currently pursuing Bachelor’s or Master’s degrees, recent graduates, or self-taught builders with demonstrable projects, portfolios, or repositories.',
   },
   {
-    q: 'How does async work actually operate day-to-day?',
-    a: 'We use Linear for issue tracking, GitHub for code reviews, and Slack for quick coordination. We write short RFCs before starting major features so everyone has clarity before writing code.',
+    q: 'What is the duration of the internship?',
+    a: 'Standard internships run for 3 to 6 months. Flexible scheduling is available to accommodate academic coursework, semester exams, or final-year projects.',
+  },
+  {
+    q: 'Are high-performing interns offered full-time roles?',
+    a: 'Yes! Our internship program is our primary pipeline for hiring associate developers, designers, AI practitioners, and growth managers into full-time careers at ENTWY.',
   },
 ];
 
@@ -183,16 +103,20 @@ export const CareersPage: React.FC = () => {
   const { section } = useParams<{ section?: string }>();
   const [life, openRoles, internships, hiring] = careersSectionsData;
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+  
+  // Interaction & Filter states
   const [expandedJob, setExpandedJob] = useState<string | null>(null);
+  const [selectedDept, setSelectedDept] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   // Application Modal state
   const [applyModalOpen, setApplyModalOpen] = useState(false);
   const [selectedRoleForApply, setSelectedRoleForApply] = useState<{ title: string; dept: string }>({
     title: '',
-    dept: 'ENGINEERING'
+    dept: 'Marketing & Growth'
   });
 
-  const handleOpenApply = (title: string, dept: string = 'ENGINEERING') => {
+  const handleOpenApply = (title: string, dept: string = 'General') => {
     setSelectedRoleForApply({ title, dept });
     setApplyModalOpen(true);
   };
@@ -206,6 +130,42 @@ export const CareersPage: React.FC = () => {
   const toggleJob = (title: string) => {
     setExpandedJob(expandedJob === title ? null : title);
   };
+
+  // Filtered job openings
+  const filteredRoles = useMemo(() => {
+    return detailedJobOpenings.filter((job) => {
+      const matchesDept = selectedDept === 'all' || job.departmentCategory === selectedDept;
+      if (!matchesDept) return false;
+
+      if (!searchQuery.trim()) return true;
+
+      const q = searchQuery.toLowerCase();
+      const inTitle = job.title.toLowerCase().includes(q);
+      const inDept = job.department.toLowerCase().includes(q);
+      const inSummary = job.summary.toLowerCase().includes(q);
+      const inStack = job.stack.some(s => s.toLowerCase().includes(q));
+      const inReqs = job.requirements.some(r => r.toLowerCase().includes(q));
+
+      return inTitle || inDept || inSummary || inStack || inReqs;
+    });
+  }, [selectedDept, searchQuery]);
+
+  // Group filtered roles by department
+  const groupedRoles = useMemo(() => {
+    const groups: { [key: string]: { deptName: string; deptCode: string; roles: JobOpening[] } } = {};
+
+    CAREER_DEPARTMENTS.forEach(d => {
+      groups[d.id] = { deptName: d.name, deptCode: d.code, roles: [] };
+    });
+
+    filteredRoles.forEach(role => {
+      if (groups[role.departmentCategory]) {
+        groups[role.departmentCategory].roles.push(role);
+      }
+    });
+
+    return Object.entries(groups).filter(([_, data]) => data.roles.length > 0);
+  }, [filteredRoles]);
 
   return (
     <div className="page-shell">
@@ -225,6 +185,45 @@ export const CareersPage: React.FC = () => {
 
         {/* Hero04: Editorial Careers Introduction */}
         <CareersEditorialHero />
+
+        {/* Highlight Banner: Location & Opportunity Type */}
+        <div 
+          style={{ 
+            backgroundColor: '#ffffff',
+            border: '1px solid var(--color-hairline)',
+            borderRadius: 'var(--radius-lg)',
+            padding: '20px 24px',
+            marginBottom: '36px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '16px',
+            boxShadow: '0 2px 8px rgba(13, 37, 61, 0.03)'
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '14px', color: 'var(--color-ink)', fontWeight: 600 }}>
+              <MapPin size={16} color="var(--color-primary)" />
+              <span>Location: Chennai, Tamil Nadu</span>
+            </div>
+            <span style={{ color: 'var(--color-muted)' }}>·</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '14px', color: 'var(--color-ink)', fontWeight: 600 }}>
+              <Briefcase size={16} color="var(--color-primary)" />
+              <span>Opportunity Type: Internship</span>
+            </div>
+            <span style={{ color: 'var(--color-muted)' }}>·</span>
+            <span style={{ fontSize: '13.5px', color: 'var(--color-body)' }}>
+              36 Dedicated Positions Across 9 Departments
+            </span>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span className="step-type-badge badge-trigger" style={{ backgroundColor: 'rgba(83, 58, 253, 0.08)', color: 'var(--color-primary)', border: '1px solid rgba(83, 58, 253, 0.2)' }}>
+              Applications Open for 2026 Batch
+            </span>
+          </div>
+        </div>
 
         {/* Career Section Quick Tabs */}
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 44 }}>
@@ -296,7 +295,7 @@ export const CareersPage: React.FC = () => {
           </div>
         </section>
 
-        {/* 2. Open Positions (Expanded Deep Breakdown) */}
+        {/* 2. Open Positions (36 Department-wise Internship Opportunities) */}
         <section
           id="open-positions"
           ref={(el) => { sectionRefs.current['open-positions'] = el; }}
@@ -310,129 +309,285 @@ export const CareersPage: React.FC = () => {
             transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
           }}
         >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '28px', flexWrap: 'wrap', gap: '12px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
             <div>
               <h2 className="title-lg" style={{ color: 'var(--color-ink)', marginBottom: '4px' }}>
-                {openRoles.title}
+                Department-wise Internship Opportunities
               </h2>
-              <p style={{ fontSize: '15px', color: 'var(--color-body)', fontWeight: 300 }}>
-                All positions are open to global remote candidates or those seeking studio hubs in Brooklyn, NY or Chennai, India.
+              <p style={{ fontSize: '15px', color: 'var(--color-body)', fontWeight: 300, margin: 0 }}>
+                Chennai, Tamil Nadu · Full-Time / Structured Internships with PPO Potential
               </p>
             </div>
-            <span className="step-type-badge badge-trigger">
-              4 Active Openings
-            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span className="step-type-badge badge-trigger">
+                {filteredRoles.length} Opportunities Available
+              </span>
+            </div>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            {detailedJobOpenings.map((role) => {
-              const isExpanded = expandedJob === role.title;
-              return (
-                <div
-                  key={role.title}
+          {/* Search Bar & Quick Filters */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '28px' }}>
+            <div style={{ position: 'relative' }}>
+              <Search 
+                size={17} 
+                style={{ position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)', color: 'var(--color-muted)' }} 
+              />
+              <input
+                type="text"
+                placeholder="Search by role title, department, or tech stack (e.g. React, SEO, AI, Figma, SQL)..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                style={{
+                  width: '100%',
+                  padding: '12px 42px 12px 44px',
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid var(--color-hairline-strong)',
+                  backgroundColor: 'var(--color-canvas-soft)',
+                  fontSize: '14px',
+                  color: 'var(--color-ink)',
+                  outline: 'none',
+                  boxSizing: 'border-box'
+                }}
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
                   style={{
-                    backgroundColor: 'var(--color-canvas-soft)',
-                    border: '1px solid var(--color-hairline)',
-                    borderRadius: 'var(--radius-lg)',
-                    overflow: 'hidden',
-                    transition: 'border-color 0.2s ease',
+                    position: 'absolute',
+                    right: 12,
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    color: 'var(--color-muted)'
                   }}
+                  aria-label="Clear search"
                 >
-                  <div
+                  <X size={16} />
+                </button>
+              )}
+            </div>
+
+            {/* Department Filter Tabs */}
+            <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '6px', scrollbarWidth: 'thin' }}>
+              <button
+                onClick={() => setSelectedDept('all')}
+                style={{
+                  padding: '6px 14px',
+                  borderRadius: 'var(--radius-pill)',
+                  border: selectedDept === 'all' ? '1px solid var(--color-primary)' : '1px solid var(--color-hairline)',
+                  backgroundColor: selectedDept === 'all' ? 'var(--color-primary)' : '#ffffff',
+                  color: selectedDept === 'all' ? '#ffffff' : 'var(--color-ink)',
+                  fontSize: '12.5px',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                All Departments (36)
+              </button>
+              {CAREER_DEPARTMENTS.map((dept) => {
+                const isActive = selectedDept === dept.id;
+                return (
+                  <button
+                    key={dept.id}
+                    onClick={() => setSelectedDept(dept.id)}
                     style={{
-                      padding: '24px 28px',
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      flexWrap: 'wrap',
-                      gap: '16px',
+                      padding: '6px 14px',
+                      borderRadius: 'var(--radius-pill)',
+                      border: isActive ? '1px solid var(--color-primary)' : '1px solid var(--color-hairline)',
+                      backgroundColor: isActive ? 'var(--color-primary)' : '#ffffff',
+                      color: isActive ? '#ffffff' : 'var(--color-ink)',
+                      fontSize: '12.5px',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      whiteSpace: 'nowrap',
+                      transition: 'all 0.15s ease'
                     }}
                   >
-                    <div>
-                      <h3 style={{ fontSize: '18px', fontWeight: 600, color: 'var(--color-ink)', marginBottom: '6px' }}>
-                        {role.title}
-                      </h3>
-                      <div style={{ display: 'flex', gap: '16px', fontSize: '13px', color: 'var(--color-muted)', fontFamily: 'var(--font-mono)', flexWrap: 'wrap' }}>
-                        <span>{role.location}</span>
-                        <span>·</span>
-                        <span>{role.type}</span>
-                        <span>·</span>
-                        <span style={{ color: 'var(--color-primary)', fontWeight: 600 }}>{role.comp}</span>
-                      </div>
-                    </div>
+                    {dept.name} ({dept.count})
+                  </button>
+                );
+              })}
+            </div>
+          </div>
 
-                    <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                      <button
-                        onClick={() => toggleJob(role.title)}
-                        style={{
-                          background: 'none',
-                          border: '1px solid var(--color-hairline-strong)',
-                          borderRadius: 'var(--radius-pill)',
-                          padding: '8px 16px',
-                          fontSize: '13px',
-                          fontWeight: 600,
-                          color: 'var(--color-ink)',
-                          cursor: 'pointer',
-                          backgroundColor: '#ffffff'
-                        }}
-                      >
-                        {isExpanded ? 'Hide Details' : 'View Scope'}
-                      </button>
-                      <button
-                        onClick={() => handleOpenApply(role.title, role.department)}
-                        className="btn-primary"
-                        style={{ padding: '8px 18px', fontSize: '13.5px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
-                      >
-                        <span>Apply</span>
-                        <ArrowRight size={14} />
-                      </button>
+          {/* Grouped Roles Container */}
+          {groupedRoles.length === 0 ? (
+            <div style={{ padding: '48px 24px', textAlign: 'center', backgroundColor: 'var(--color-canvas-soft)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-hairline)' }}>
+              <Briefcase size={36} color="var(--color-muted)" style={{ margin: '0 auto 12px' }} />
+              <div style={{ fontSize: '16px', fontWeight: 600, color: 'var(--color-ink)', marginBottom: '4px' }}>
+                No internship opportunities match your criteria
+              </div>
+              <p style={{ fontSize: '13.5px', color: 'var(--color-muted)', margin: '0 0 16px' }}>
+                Try adjusting your search query or department filter.
+              </p>
+              <button
+                onClick={() => { setSelectedDept('all'); setSearchQuery(''); }}
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: 'var(--radius-pill)',
+                  border: '1px solid var(--color-hairline-strong)',
+                  backgroundColor: '#ffffff',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  cursor: 'pointer'
+                }}
+              >
+                Reset Filters
+              </button>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '36px' }}>
+              {groupedRoles.map(([deptId, deptData]) => (
+                <div key={deptId} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  {/* Department Subheader */}
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--color-hairline)', paddingBottom: '10px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <Building size={17} color="var(--color-primary)" />
+                      <h3 style={{ fontSize: '17px', fontWeight: 700, color: 'var(--color-ink)', margin: 0 }}>
+                        {deptData.deptName}
+                      </h3>
                     </div>
+                    <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--color-muted)', fontWeight: 600 }}>
+                      {deptData.roles.length} {deptData.roles.length === 1 ? 'Role' : 'Roles'}
+                    </span>
                   </div>
 
-                  {isExpanded && (
-                    <div style={{ padding: '0 28px 24px 28px', borderTop: '1px solid var(--color-hairline)', backgroundColor: '#ffffff' }}>
-                      <p style={{ fontSize: '15px', color: 'var(--color-body)', lineHeight: 1.6, margin: '20px 0 18px 0', fontWeight: 400 }}>
-                        {role.summary}
-                      </p>
+                  {/* Role Cards in Department */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                    {deptData.roles.map((role) => {
+                      const isExpanded = expandedJob === role.title;
+                      return (
+                        <div
+                          key={role.id}
+                          style={{
+                            backgroundColor: 'var(--color-canvas-soft)',
+                            border: isExpanded ? '1px solid var(--color-primary)' : '1px solid var(--color-hairline)',
+                            borderRadius: 'var(--radius-lg)',
+                            overflow: 'hidden',
+                            transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                          }}
+                        >
+                          <div
+                            style={{
+                              padding: '22px 26px',
+                              display: 'flex',
+                              justifyContent: 'space-between',
+                              alignItems: 'center',
+                              flexWrap: 'wrap',
+                              gap: '16px',
+                            }}
+                          >
+                            <div style={{ maxWidth: '640px' }}>
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', flexWrap: 'wrap' }}>
+                                <h4 style={{ fontSize: '17px', fontWeight: 600, color: 'var(--color-ink)', margin: 0 }}>
+                                  {role.title}
+                                </h4>
+                                <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', backgroundColor: '#ffffff', border: '1px solid var(--color-hairline)', padding: '2px 8px', borderRadius: 'var(--radius-pill)', color: 'var(--color-primary)', fontWeight: 600 }}>
+                                  {role.department}
+                                </span>
+                              </div>
+                              <div style={{ display: 'flex', gap: '14px', fontSize: '12.5px', color: 'var(--color-muted)', fontFamily: 'var(--font-mono)', flexWrap: 'wrap' }}>
+                                <span>{role.location}</span>
+                                <span>·</span>
+                                <span>{role.type}</span>
+                                <span>·</span>
+                                <span style={{ color: 'var(--color-primary)', fontWeight: 600 }}>{role.comp}</span>
+                              </div>
+                            </div>
 
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '24px', marginBottom: '20px' }}>
-                        <div>
-                          <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--color-muted)', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
-                            What You Will Own
+                            <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                              <button
+                                onClick={() => toggleJob(role.title)}
+                                style={{
+                                  background: '#ffffff',
+                                  border: '1px solid var(--color-hairline-strong)',
+                                  borderRadius: 'var(--radius-pill)',
+                                  padding: '7px 15px',
+                                  fontSize: '13px',
+                                  fontWeight: 600,
+                                  color: 'var(--color-ink)',
+                                  cursor: 'pointer',
+                                  transition: 'background-color 0.15s ease'
+                                }}
+                              >
+                                {isExpanded ? 'Hide Details' : 'View Scope'}
+                              </button>
+                              <button
+                                onClick={() => handleOpenApply(role.title, role.department)}
+                                className="btn-primary"
+                                style={{ padding: '7px 16px', fontSize: '13px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                              >
+                                <span>Apply</span>
+                                <ArrowRight size={14} />
+                              </button>
+                            </div>
                           </div>
-                          <ul style={{ margin: 0, paddingLeft: '18px', fontSize: '13.5px', color: 'var(--color-body)', lineHeight: 1.6 }}>
-                            {role.responsibilities.map((r, i) => (
-                              <li key={i} style={{ marginBottom: '6px' }}>{r}</li>
-                            ))}
-                          </ul>
-                        </div>
 
-                        <div>
-                          <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--color-muted)', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
-                            What We Look For
-                          </div>
-                          <ul style={{ margin: 0, paddingLeft: '18px', fontSize: '13.5px', color: 'var(--color-body)', lineHeight: 1.6 }}>
-                            {role.requirements.map((req, i) => (
-                              <li key={i} style={{ marginBottom: '6px' }}>{req}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
+                          {isExpanded && (
+                            <div style={{ padding: '0 26px 22px 26px', borderTop: '1px solid var(--color-hairline)', backgroundColor: '#ffffff' }}>
+                              <p style={{ fontSize: '14.5px', color: 'var(--color-body)', lineHeight: 1.6, margin: '18px 0 16px 0', fontWeight: 400 }}>
+                                {role.summary}
+                              </p>
 
-                      <div style={{ borderTop: '1px solid var(--color-hairline)', paddingTop: '16px', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-                        <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--color-muted)' }}>Tech Focus:</span>
-                        {role.stack.map((t) => (
-                          <span key={t} style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', backgroundColor: 'var(--color-canvas-soft)', border: '1px solid var(--color-hairline)', padding: '2px 8px', borderRadius: 'var(--radius-pill)', color: 'var(--color-ink-mid)' }}>
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '22px', marginBottom: '18px' }}>
+                                <div style={{ backgroundColor: 'var(--color-canvas-soft)', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-hairline)' }}>
+                                  <div style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-ink)', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '10px' }}>
+                                    What You Will Own
+                                  </div>
+                                  <ul style={{ margin: 0, paddingLeft: '18px', fontSize: '13px', color: 'var(--color-body)', lineHeight: 1.6 }}>
+                                    {role.responsibilities.map((r, i) => (
+                                      <li key={i} style={{ marginBottom: '6px' }}>{r}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+
+                                <div style={{ backgroundColor: 'var(--color-canvas-soft)', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-hairline)' }}>
+                                  <div style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-ink)', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '10px' }}>
+                                    What We Look For
+                                  </div>
+                                  <ul style={{ margin: 0, paddingLeft: '18px', fontSize: '13px', color: 'var(--color-body)', lineHeight: 1.6 }}>
+                                    {role.requirements.map((req, i) => (
+                                      <li key={i} style={{ marginBottom: '6px' }}>{req}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
+
+                              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', borderTop: '1px solid var(--color-hairline)', paddingTop: '14px' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                                  <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--color-muted)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                    <Tag size={13} /> Tech Focus:
+                                  </span>
+                                  {role.stack.map((t) => (
+                                    <span key={t} style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', backgroundColor: 'var(--color-canvas-soft)', border: '1px solid var(--color-hairline)', padding: '2px 8px', borderRadius: 'var(--radius-pill)', color: 'var(--color-ink-mid)' }}>
+                                      {t}
+                                    </span>
+                                  ))}
+                                </div>
+
+                                <button
+                                  onClick={() => handleOpenApply(role.title, role.department)}
+                                  className="btn-primary"
+                                  style={{ padding: '6px 14px', fontSize: '12.5px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                                >
+                                  <span>Apply for {role.title}</span>
+                                  <ArrowRight size={13} />
+                                </button>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* 3 & 4. Internships & Hiring Process Side-by-Side */}
@@ -456,14 +611,14 @@ export const CareersPage: React.FC = () => {
               {internships.title}
             </h3>
             <p style={{ fontSize: '14.5px', color: 'var(--color-body)', lineHeight: 1.6, marginBottom: '24px', fontWeight: 300 }}>
-              {internships.desc} Our 12-week fellowship pairs you with senior systems architects to work on real customer cloud platforms, not simulated demo apps.
+              {internships.desc} Every intern is paired with senior technical mentors and specialists in our Chennai studio, contributing directly to real client platforms, generative AI tooling, and operational frameworks.
             </p>
             <button
-              onClick={() => handleOpenApply('2026 Engineering Fellowship', 'FELLOWSHIP')}
+              onClick={() => handleOpenApply('General Internship Application', 'General')}
               className="dropdown-link-item"
               style={{ color: 'var(--color-primary)', fontWeight: 600, padding: 0, background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
             >
-              <span>Apply for 2026 Engineering Fellowship &rarr;</span>
+              <span>Submit General Internship Application &rarr;</span>
             </button>
           </div>
 
@@ -541,17 +696,17 @@ export const CareersPage: React.FC = () => {
           }}
         >
           <h2 className="display-md" style={{ color: '#ffffff', marginBottom: '14px', fontWeight: 300 }}>
-            Don't see a role that fits?
+            Don't see a role that matches your profile?
           </h2>
           <p style={{ color: '#cad5e2', fontSize: '16px', maxWidth: '640px', margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 300 }}>
-            We are always looking for exceptional distributed systems engineers, agent researchers, and systems designers. Send us your work.
+            We always welcome motivated students, graduates, and builders across engineering, AI, design, marketing, and operations. Send us your profile and let's explore together.
           </p>
           <button
-            onClick={() => handleOpenApply('General Open Engineering Application', 'ENGINEERING')}
+            onClick={() => handleOpenApply('General Internship Application', 'General')}
             className="btn-secondary-on-dark"
             style={{ padding: '13px 26px', border: 'none', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
           >
-            <span>Send Open Application</span>
+            <span>Send Open Internship Application</span>
             <ArrowRight size={15} />
           </button>
         </div>

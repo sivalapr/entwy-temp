@@ -7,19 +7,18 @@ export const CareersEditorialHero: React.FC = () => {
     <div style={{ marginBottom: 48 }}>
       <Hero04
         headingAs="h1"
-
-        title="Build thoughtful software."
-        titleLine2="Work with people who care."
-        description="Work with high autonomy, direct customer impact, and the space to ship modern AI software with care."
+        title="Learn, build & ship at ENTWY."
+        titleLine2="2026 Internship Opportunities."
+        description="36 department-wise internship opportunities across Engineering, AI, Design, Marketing, Product, and Finance based in Chennai, Tamil Nadu."
         primaryCta={{
           ctaEnabled: true,
-          text: 'Explore Open Positions',
+          text: 'Explore 36 Internships',
           link: '/careers/open-positions',
           size: 'default',
         }}
         secondaryCta={{
           ctaEnabled: true,
-          text: 'View Internships',
+          text: 'Chennai Studio',
           link: '/careers/internships',
           size: 'default',
           variant: 'outline',

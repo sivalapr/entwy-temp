@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ShieldCheck, Users, Sparkles, Award, ArrowRight, HeartHandshake, Terminal } from 'lucide-react';
 
 interface AboutCareersSectionProps {
@@ -14,11 +15,11 @@ export const AboutCareersSection: React.FC<AboutCareersSectionProps> = ({ onOpen
   ];
 
   const openPositions = [
-    { title: "Staff Distributed Systems Engineer", team: "Technology Guild", type: "Full-Time · Remote" },
-    { title: "Lead AI & LLM Systems Architect", team: "AI Guild", type: "Full-Time · Remote" },
-    { title: "Senior Design Systems Architect", team: "Design Guild", type: "Full-Time · Remote" },
-    { title: "Product Strategy Director", team: "Strategy Guild", type: "Full-Time · Remote" },
-    { title: "Engineering Fellow / Intern", team: "Fellowship Program", type: "Fellowship · Remote" }
+    { title: "Frontend Developer Intern", team: "Technology & Engineering", type: "Internship · Chennai" },
+    { title: "Generative AI / ML Intern", team: "Artificial Intelligence & Data", type: "Internship · Chennai" },
+    { title: "UI/UX Design Intern", team: "Creative & Design", type: "Internship · Chennai" },
+    { title: "Product Management Intern", team: "Product & Project Management", type: "Internship · Chennai" },
+    { title: "Digital Marketing Intern", team: "Marketing & Growth", type: "Internship · Chennai" }
   ];
 
   return (
@@ -27,7 +28,6 @@ export const AboutCareersSection: React.FC<AboutCareersSectionProps> = ({ onOpen
         {/* About Section */}
         <div style={{ marginBottom: '64px' }}>
           <div style={{ maxWidth: '720px', marginBottom: '32px' }}>
-
             <h2 className="display-md">A studio built by senior engineers and product designers.</h2>
             <p className="body-lg" style={{ marginTop: '12px' }}>
               ENTWY was founded on a simple observation: conventional digital agencies drown in management bloat, while traditional enterprise software consultancies move at glacial speed. We assembled a lean, world-class guild that pairs the velocity of an elite venture team with enterprise infrastructure standards.
@@ -49,17 +49,16 @@ export const AboutCareersSection: React.FC<AboutCareersSectionProps> = ({ onOpen
         <div id="careers-section" style={{ borderTop: '1px solid var(--color-hairline)', paddingTop: '64px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '32px', flexWrap: 'wrap', gap: '16px' }}>
             <div>
-
-              <h2 className="display-md">High autonomy, high agency, zero bureaucracy.</h2>
+              <h2 className="display-md">Department-wise Internship Opportunities</h2>
               <p className="body-md" style={{ marginTop: '8px' }}>
-                We hire the top 1% of technical talent across the globe. Competitive equity, asynchronous culture, and direct ownership of high-impact systems.
+                36 active internship openings across 9 specialized departments based at our Chennai studio. Real-world mentorship, hands-on production experience, and PPO potential.
               </p>
             </div>
 
-            <button className="btn-secondary" onClick={() => alert("Application portal: Please email your GitHub / portfolio to careers@entwy.com")}>
-              <span>View Hiring Protocol</span>
+            <Link to="/careers" className="btn-secondary" style={{ textDecoration: 'none' }}>
+              <span>View All 36 Opportunities</span>
               <ArrowRight size={14} />
-            </button>
+            </Link>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -86,12 +85,13 @@ export const AboutCareersSection: React.FC<AboutCareersSectionProps> = ({ onOpen
                   <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', padding: '4px 10px', borderRadius: 'var(--radius-md)', backgroundColor: 'var(--color-hairline-soft)', border: '1px solid var(--color-hairline)', color: 'var(--color-muted)', fontWeight: 500 }}>
                     {pos.type}
                   </span>
-                  <button 
+                  <Link 
+                    to="/careers"
                     className="text-link"
-                    onClick={() => alert(`Inquire for ${pos.title} via careers@entwy.com`)}
+                    style={{ textDecoration: 'none' }}
                   >
                     Apply &rarr;
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -101,3 +101,5 @@ export const AboutCareersSection: React.FC<AboutCareersSectionProps> = ({ onOpen
     </section>
   );
 };
+
+export default AboutCareersSection;
