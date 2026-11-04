@@ -2,6 +2,8 @@ import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { allServiceDetails } from '../data/serviceDetailsData';
 import { servicesPillarsData } from '../data/sitemapData';
+import { getServiceFaqs } from '../data/serviceFaqs';
+import { FaqSection } from '../components/FaqSection';
 import { 
   ArrowLeft, 
   ArrowRight, 
@@ -299,6 +301,12 @@ export const ServiceDetailPage: React.FC = () => {
             </div>
           </div>
         )}
+
+        {/* FAQ */}
+        <FaqSection
+          faqs={getServiceFaqs(service.slug, service.title)}
+          subtitle={`Everything you need to know about ${service.title} with ENTWY.`}
+        />
 
         {/* Bottom Call to Action */}
         <div className="cta-wave-banner" style={{ padding: '52px', textAlign: 'center' }}>

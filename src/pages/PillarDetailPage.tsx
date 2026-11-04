@@ -2,6 +2,8 @@ import React from 'react';
 import { useParams, useLocation, Link, Navigate } from 'react-router-dom';
 import { servicesPillarsData } from '../data/sitemapData';
 import { allServiceDetails } from '../data/serviceDetailsData';
+import { pillarFaqs } from '../data/serviceFaqsExtra';
+import { FaqSection } from '../components/FaqSection';
 import { 
   ArrowLeft, 
   ArrowRight, 
@@ -395,6 +397,12 @@ export const PillarDetailPage: React.FC = () => {
             ))}
           </div>
         </div>
+
+        {/* FAQ */}
+        <FaqSection
+          faqs={pillarFaqs[pillarKey] ?? []}
+          subtitle={`Common questions about ENTWY ${pillar.title} services.`}
+        />
 
         {/* Bottom CTA */}
         <div className="cta-wave-banner" style={{ padding: '52px', textAlign: 'center' }}>
